@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +24,25 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+body{
+  background-color: rgb(250 250 249);
+  background: linear-gradient(90deg, #eee 1px, rgb(250 250 249) 2px) 1px 0, #fff;
+  background-size: 20% 1px;
+}
+
+.outline-text {
+    color: rgb(24, 24, 27);
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: aliceblue;
+    -webkit-text-stroke-width: 2px;
+}
+
+#path {
+    filter: url(#blurFilter);
+    -webkit-filter: url(#blurFilter);
+  -moz-filter: url(#blurFilter);
+  -o-filter: url(#blurFilter);
+  -ms-filter: url(#blurFilter);
 }

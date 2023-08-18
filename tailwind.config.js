@@ -7,12 +7,23 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateX(0%)'},
+          '100%': { transform: 'translateX(calc(-1*20rem*7))'},
+        }
+      },
+      animation: {
+        sliding: 'slide 10s linear infinite',
+      },
+      left: {
+        '1/5': '20%',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+    require("tailwindcss-text-fill"),
+  ],
 }
