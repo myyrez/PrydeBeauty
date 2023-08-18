@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Navbar from '@/components/navbar';
+import Navbar from '@/components/Navbar';
+import ProductCard from '@/components/ProductCard';
 import { FaStarOfLife } from 'react-icons/fa'
 import { BsArrowRightShort } from 'react-icons/bs'
 import { CiSearch, CiUser, CiHeart, CiMenuFries, CiShoppingCart } from 'react-icons/ci'
+import ShopButton from '@/components/shared/shopButton';
 
 export default function Home() {
   return (
-    <div className='relative h-screen overflow-y-scroll flex gap-4 items-center flex-col '>
+    <div className='relative h-screen overflow-y-scroll flex gap-16 items-center flex-col '>
 
       <Navbar />
-      {/* oi */}
+
       {/* hero section */}
       <div className='relative flex flex-col mt-24 h-fit min-w-[48rem] z-10'>
         <Image className='absolute left-1/4 -translate-x-3/4' src='/images/heroImg1.png' height={240} width={190} alt='hero image 1'/>
@@ -36,8 +38,13 @@ export default function Home() {
       </div>
 
       {/* featured collection section */}
-      <div className='h-fit w-4/5 mx-[5%] z-10'>
+      <div className='h-fit w-[90%] z-10'>
         <h1 className='text-4xl text-zinc-900'>Featured Collection</h1>
+        <div className='flex justify-between py-10'>
+          <ProductCard {...{ odd: true}} />
+          <ProductCard {...{ odd: false}} />
+          <ProductCard {...{ odd: true}} />
+        </div>
       </div>
 
     </div>
