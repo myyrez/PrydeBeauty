@@ -10,7 +10,7 @@ export default function Home() {
     <div className='relative h-screen overflow-y-scroll flex gap-4 items-center flex-col '>
 
       <Navbar />
-
+      {/* oi */}
       {/* hero section */}
       <div className='relative flex flex-col mt-24 h-fit min-w-[48rem] z-10'>
         <Image className='absolute left-1/4 -translate-x-3/4' src='/images/heroImg1.png' height={240} width={190} alt='hero image 1'/>
