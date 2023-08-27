@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
-import { FaStarOfLife } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa'
 import { BsArrowRightShort } from 'react-icons/bs'
 import { CiSearch, CiUser, CiHeart, CiMenuFries, CiShoppingCart } from 'react-icons/ci'
-import ShopButton from '@/components/shared/shopButton';
 
 export default function Home() {
   return (
-    <div className='relative h-screen overflow-y-scroll flex gap-16 items-center flex-col '>
+    <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
 
       <Navbar />
 
@@ -28,9 +28,9 @@ export default function Home() {
         <div className='w-44'>
           <p className='my-4 text-zinc-900 font-semibold'>Your skin is beautiful. Show it off.</p>
           <div className='w-full relative flex items-center'>
-            <div>
+            <div className='w-fit'>
               <p className=' text-zinc-900 font-bold flex items-center'>See all products</p>
-              <div className='h-px w-30 bg-zinc-900'></div>
+              <div className='h-px w-full bg-zinc-900'></div>
             </div>
             <BsArrowRightShort className='text-zinc-900 text-2xl ml-2' />
           </div>
@@ -46,6 +46,76 @@ export default function Home() {
           <ProductCard {...{ odd: true}} />
         </div>
       </div>
+
+      {/* showing off section */}
+      <div className='relative h-fit w-[90%] z-10 grid grid-cols-4 gap-8'>
+
+        <h1 className='absolute top-0 left-14 text-6xl'>Flawlessly</h1>
+        <h1 className='absolute top-0 left-24 text-7xl mt-16'>Showing Off</h1>
+
+        <div>
+          <Image className='' src='/images/showoff1.png' height={240} width={280} alt='showoff image'/>
+        </div>
+
+        <div className='flex flex-col justify-end mt-40 gap-4 col-span-2'>
+          <p className='flex items-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt accusamus veniam officiis adipisci odit explicabo sunt dolores corrupti placeat!</p>
+          <div className='w-fit'>
+            <p className='font-bold flex items-center'>See more</p>
+            <div className='h-px w-full bg-zinc-900'></div>
+          </div>
+        </div>
+
+        <div>
+          <Image className='m-auto' src='/images/showoff2.png' height={180} width={180} alt='showoff video thumbnail'/>
+        </div>
+      </div>
+
+      {/* exceptional section */}
+      <div className='relative flex flex-col w-full gap-4 justify-center align-bottom'>
+        <h1 className='absolute left-0 top-0 text-stone-200 text-[10rem] text-left tracking-widest italic w-[50vw]'>Excep</h1>
+        <h1 className='absolute right-0 top-44 text-stone-200 text-[10rem] text-right tracking-widest italic w-[50vw] float-right'>tional</h1>
+        
+        <Image className=' inset-x-0 inset-y-0 mx-auto z-30' src='/images/cream.png' height={300} width={350} alt='showoff video thumbnail'/>
+        <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-96 w-96 rounded-full z-20 bg-gradient-to-b from-yellow-400 to-stone-50 blur-2xl'></div>
+
+        <div className='w-full text-center align-center'>
+          <h1 className='text-5xl'>Our best seller from <span className='italic'>Time to Still</span></h1>
+          <div className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
+            <p className='h-auto text-sm leading-[30px] font-bold'>Shop this collection</p>
+          </div>
+        </div>
+      </div>
+
+      {/* testimonials section */}
+      <div className='h-fit w-[90%] z-10 flex flex-col gap-8'>
+        <h1 className='text-4xl'>Our <span className='italic'>testimonials</span></h1>
+
+        <div className='grid grid-cols-4 gap-8'>
+          <div>
+            <h1 className='font-bold'>blabla</h1>
+            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
+          </div>
+          <div>
+            <h1 className='font-bold'>blabla</h1>
+            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
+          </div>
+          <div>
+            <h1 className='font-bold'>blabla</h1>
+            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
+          </div>
+          <div>
+            <h1 className='font-bold'>blabla</h1>
+            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
+          </div>
+        </div>
+
+      </div>
+
+      <Footer />
 
     </div>
   )

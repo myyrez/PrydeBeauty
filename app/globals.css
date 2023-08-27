@@ -27,6 +27,17 @@ body {
 } */
 
 body{
+  overflow-y: scroll;
+  background-color: rgb(250 250 249);
+  background: linear-gradient(90deg, #eee 1px, rgb(250 250 249) 2px) 1px 0, #fff;
+  background-size: 20% 1px;
+}
+
+html {
+  
+}
+
+.lines {
   background-color: rgb(250 250 249);
   background: linear-gradient(90deg, #eee 1px, rgb(250 250 249) 2px) 1px 0, #fff;
   background-size: 20% 1px;

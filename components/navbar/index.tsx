@@ -7,9 +7,9 @@ export default function Navbar() {
         <nav className='fixed h-24 z-50 w-full flex justify-between items-center'>
             <div className='my-6 ml-20'>
                 <h1 className='text-zinc-900 font-semibold flex items-center gap-1'>
-                    <span className='text-orange-500 mr-1'><FaStarOfLife/></span>
+                    <span className='text-orange-500 mr-1'> <FaStarOfLife/> </span>
                     Pryde
-                    <span className='font-bold'>Beauty</span>
+                    <span className='font-bold'> Beauty </span>
                 </h1>
             </div>
         
