@@ -15,8 +15,8 @@ export default function Home() {
 
       {/* hero section */}
       <div className='relative flex flex-col mt-24 h-fit min-w-[48rem] z-10'>
-        <Image className='absolute z-30 left-1/4 -translate-x-3/4' src='/images/heroImg1.png' height={240} width={190} alt='hero image 1'/>
-        <Image className='absolute z-30 right-1/4 mt-24 translate-x-3/4' src='/images/heroImg2.png' height={320} width={180} alt='hero image 2'/>
+        <Image className='absolute z-30 left-1/4 -translate-x-3/4' src='/images/heroImg3.png' height={240} width={190} alt='hero image 1'/>
+        <Image className='absolute z-30 right-1/4 mt-24 translate-x-3/4' src='/images/heroImg4.png' height={320} width={180} alt='hero image 2'/>
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-36 h-28 w-28 -translate-x-8 rounded-full z-50 bg-zinc-50/40 backdrop-blur-sm'></div>
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-32 w-32 rounded-full z-0 bg-gradient-to-br from-orange-600 to-yellow-400 blur-xl'></div>
 
@@ -30,10 +30,10 @@ export default function Home() {
         <div className='w-44'>
           <p className='my-4 text-zinc-900 mt-32 font-semibold'>Your skin is beautiful. Show it off.</p>
           <div className='w-full relative flex items-center'>
-            <div className='w-fit'>
+            <Link href='/collection' className='w-fit'>
               <p className=' text-zinc-900 font-bold flex items-center'>See all products</p>
-              <div className='h-px w-full bg-zinc-900'></div>
-            </div>
+              <div className='h-px w-1/6 bg-zinc-900'></div>
+            </Link>
             <BsArrowRightShort className='text-zinc-900 text-2xl ml-2' />
           </div>
         </div>
@@ -58,15 +58,15 @@ export default function Home() {
         <h1 className='absolute z-40 top-0 left-24 text-7xl mt-16 outline-text italic'>Showing Off</h1>
 
         <div className='z-30'>
-          <Image className='' src='/images/showoff1.png' height={240} width={280} alt='showoff image'/>
+          <Image className='' src='/images/showoff3.png' height={240} width={280} alt='showoff image'/>
         </div>
 
         <div className='flex flex-col justify-end mt-40 gap-4 col-span-2'>
           <p className='flex items-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt accusamus veniam officiis adipisci odit explicabo sunt dolores corrupti placeat!</p>
-          <div className='w-fit'>
+          <Link href='/product' className='w-fit'>
             <p className='font-bold flex items-center'>See more</p>
-            <div className='h-px w-full bg-zinc-900'></div>
-          </div>
+            <div className='h-px w-1/6 ease-in-out duration-300 bg-zinc-900'></div>
+          </Link>
         </div>
 
         <div>
@@ -76,17 +76,17 @@ export default function Home() {
 
       {/* exceptional section */}
       <div className='relative flex flex-col w-full gap-4 justify-center align-bottom'>
-        <h1 className='absolute left-0 top-0 text-stone-200 text-[10rem] text-left tracking-widest italic w-[50vw]'>Excep</h1>
-        <h1 className='absolute right-0 top-44 text-stone-200 text-[10rem] text-right tracking-widest italic w-[50vw] float-right'>tional</h1>
+        <h1 className='absolute left-0 top-0 select-none text-stone-200 text-[10rem] text-left tracking-widest italic w-[50vw]'>Excep</h1>
+        <h1 className='absolute right-0 top-44 select-none text-stone-200 text-[10rem] text-right tracking-widest italic w-[50vw] float-right'>tional</h1>
         
-        <Image className=' inset-x-0 inset-y-0 mx-auto z-30' src='/images/cream.png' height={300} width={350} alt='showoff video thumbnail'/>
+        <Image className='inset-x-0 inset-y-0 mx-auto z-30 select-none' src='/images/cream2.png' height={300} width={350} alt='showoff video thumbnail'/>
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-96 w-96 rounded-full z-20 bg-gradient-to-b from-yellow-400 to-stone-50 blur-2xl'></div>
 
         <div className='w-full text-center align-center'>
           <h1 className='text-5xl'>Our best seller from <span className='italic'>Time to Still</span></h1>
-          <div className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
+          <Link href='' className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
             <p className='h-auto text-sm leading-[30px] font-bold'>Shop this collection</p>
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -96,23 +96,23 @@ export default function Home() {
 
         <div className='grid grid-cols-4 gap-8'>
           <div>
-            <h1 className='font-bold'>blabla</h1>
-            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <h1 className='font-bold text-xs uppercase mb-1'>Sophia Anderson</h1>
+            <p className='text-sm'>The mascara is a game-changer - my lashes have never looked so long and voluminous!</p>
             <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
           </div>
           <div>
-            <h1 className='font-bold'>blabla</h1>
-            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <h1 className='font-bold text-xs uppercase mb-1'>Olivia Wells</h1>
+            <p className='text-sm'>I can't believe how smooth my skin feels after using this amazing serum.</p>
             <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
           </div>
           <div>
-            <h1 className='font-bold'>blabla</h1>
-            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <h1 className='font-bold text-xs uppercase mb-1'>Isabella Turner</h1>
+            <p className='text-sm'>This lipstick stays put all day, and the color selection is fantastic.</p>
             <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
           </div>
           <div>
-            <h1 className='font-bold'>blabla</h1>
-            <p className='text-sm'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente rem illum soluta</p>
+            <h1 className='font-bold text-xs uppercase mb-1'>Mia Harrison</h1>
+            <p className='text-sm'>This skincare product gave me a radiant glow in just days! I'm in love!</p>
             <div className='flex gap-2 mt-4'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
           </div>
         </div>
