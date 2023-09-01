@@ -47,7 +47,7 @@ html {
     color: rgb(24, 24, 27);
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-color: aliceblue;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 1px;
 }
 
 #path {
