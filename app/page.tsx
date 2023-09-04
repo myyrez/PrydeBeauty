@@ -23,15 +23,15 @@ export default function Home() {
         <div className=''>
           <h1 className='text-9xl my-6 text-left text-zinc-900'>Beauty</h1>
           <h1 className='absolute z-40 text-9xl my-6 top-0 text-zinc-900 outline-text'>Beauty</h1>
-          <h1 className='absolute text-9xl my-6 right-0 bottom-24 text-zinc-900'>Products</h1>
-          <h1 className='absolute z-40 text-9xl my-6 right-0 bottom-24 text-zinc-900 outline-text'>Products</h1>
+          <h1 className='absolute text-9xl my-6 right-0 bottom-16 text-zinc-900'>Products</h1>
+          <h1 className='absolute z-40 text-9xl my-6 right-0 bottom-16 text-zinc-900 outline-text'>Products</h1>
         </div>
 
         <div className='w-44'>
           <p className='my-4 text-zinc-900 mt-32 font-semibold'>Your skin is beautiful. Show it off.</p>
           <div className='w-full relative flex items-center'>
-            <Link href='/collection' className='w-fit'>
-              <p className=' text-zinc-900 font-bold flex items-center'>See all products</p>
+            <Link href='/collections' className='w-fit'>
+              <p className=' text-zinc-900 font-bold flex items-center'>See all collections</p>
               <div className='h-px w-1/6 bg-zinc-900'></div>
             </Link>
             <BsArrowRightShort className='text-zinc-900 text-2xl ml-2' />
@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* featured collection section */}
       <div className='h-fit w-[90%] z-10'>
-        <h1 className='text-4xl text-zinc-900'>Featured Collection</h1>
+        <h1 className='text-4xl text-zinc-900'>Featured <span className='italic font-serif'>Collection</span></h1>
         <div className='flex justify-between py-10'>
           <ProductCard {...{ odd: true, imagePath: '/images/shade1.png'}} />
           <ProductCard {...{ odd: false, imagePath: '/images/shade2.png'}} />
@@ -52,18 +52,18 @@ export default function Home() {
       {/* showing off section */}
       <div className='relative h-fit w-[90%] grid grid-cols-4 gap-8'>
 
-        <h1 className='absolute z-0 top-0 left-14 text-6xl italic'>Flawlessly</h1>
-        <h1 className='absolute z-40 top-0 left-14 text-6xl outline-text italic'>Flawlessly</h1>
-        <h1 className='absolute top-0 left-24 text-7xl mt-16 italic'>Showing Off</h1>
-        <h1 className='absolute z-40 top-0 left-24 text-7xl mt-16 outline-text italic'>Showing Off</h1>
+        <h1 className='absolute z-0 top-12 left-24 text-6xl '>Flawlessly</h1>
+        <h1 className='absolute z-40 top-12 left-24 text-6xl outline-text '>Flawlessly</h1>
+        <h1 className='absolute top-12 left-40 text-7xl mt-16 '>Showing <span className='font-serif italic'>Off</span></h1>
+        <h1 className='absolute z-40 top-12 left-40 text-7xl mt-16 outline-text '>Showing</h1>
 
         <div className='z-30'>
           <Image className='' src='/images/showoff3.png' height={240} width={280} alt='showoff image'/>
         </div>
 
-        <div className='flex flex-col justify-end mt-40 gap-4 col-span-2'>
+        <div className='flex flex-col justify-end h-80 gap-4 col-span-2'>
           <p className='flex items-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt accusamus veniam officiis adipisci odit explicabo sunt dolores corrupti placeat!</p>
-          <Link href='/product' className='w-fit'>
+          <Link href='/about' className='w-fit'>
             <p className='font-bold flex items-center'>See more</p>
             <div className='h-px w-1/6 ease-in-out duration-300 bg-zinc-900'></div>
           </Link>
@@ -76,23 +76,23 @@ export default function Home() {
 
       {/* exceptional section */}
       <div className='relative flex flex-col w-full gap-4 justify-center align-bottom'>
-        <h1 className='absolute left-0 top-0 select-none text-stone-200 text-[10rem] text-left tracking-widest italic w-[50vw]'>Excep</h1>
-        <h1 className='absolute right-0 top-44 select-none text-stone-200 text-[10rem] text-right tracking-widest italic w-[50vw] float-right'>tional</h1>
+        <h1 className='absolute left-0 top-0 select-none text-stone-200 text-[10rem] text-left tracking-widest italic font-serif w-[50vw]'>Excep</h1>
+        <h1 className='absolute right-0 top-44 select-none text-stone-200 text-[10rem] text-right tracking-widest italic font-serif w-[50vw] float-right'>tional</h1>
         
         <Image className='inset-x-0 inset-y-0 mx-auto z-30 select-none' src='/images/cream2.png' height={300} width={350} alt='showoff video thumbnail'/>
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-96 w-96 rounded-full z-20 bg-gradient-to-b from-yellow-400 to-stone-50 blur-2xl'></div>
 
         <div className='w-full text-center align-center'>
-          <h1 className='text-5xl'>Our best seller from <span className='italic'>Time to Still</span></h1>
-          <Link href='' className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
-            <p className='h-auto text-sm leading-[30px] font-bold'>Shop this collection</p>
+          <h1 className='text-5xl'>Our best seller from <span className='italic font-serif'>Time to Still</span></h1>
+          <Link href='/product' className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
+            <p className='h-auto text-sm leading-[30px] font-bold'>Shop this product</p>
           </Link>
         </div>
       </div>
 
       {/* testimonials section */}
       <div className='h-fit w-[90%] z-10 flex flex-col gap-8'>
-        <h1 className='text-4xl'>Our <span className='italic'>testimonials</span></h1>
+        <h1 className='text-4xl'>Our <span className='italic font-serif'>testimonials</span></h1>
 
         <div className='grid grid-cols-4 gap-8'>
           <div>

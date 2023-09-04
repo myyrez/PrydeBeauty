@@ -16,7 +16,7 @@ export default function Navbar() {
             <div className='my-6 mr-20 text-zinc-900 font-semibold flex gap-6 items-center'>
                 <Link href='/about'>About Us</Link>
                 <div className='select-none'>.</div>
-                <Link href='/collection'>Collection</Link>
+                <Link href='/collections'>Collections</Link>
                 <div className='select-none'>.</div>
                 <Link href='/wishlist'><CiHeart className='text-2xl' /></Link>
                 <Link href='/account'><CiUser className='text-2xl' /></Link>
