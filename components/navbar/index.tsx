@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CartButton from "../shared/CartButton"
 import { FaStarOfLife } from 'react-icons/fa'
 import { CiSearch, CiUser, CiHeart, CiMenuFries, CiShoppingCart } from 'react-icons/ci'
 
@@ -20,11 +21,7 @@ export default function Navbar() {
                 <div className='select-none'>.</div>
                 <Link href='/wishlist'><CiHeart className='text-2xl' /></Link>
                 <Link href='/account'><CiUser className='text-2xl' /></Link>
-                <Link href='/cart'>
-                    <div className='bg-zinc-900 rounded-full h-10 w-10 flex justify-center items-center'>
-                    <CiShoppingCart className='text-2xl text-stone-50' />
-                    </div>
-                </Link>
+                <CartButton />
             </div>
         </nav>
     )

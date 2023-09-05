@@ -8,7 +8,7 @@ import WishlistButton from "@/components/shared/WishlistButton";
 
 export default function ProductPage() {
   return (
-    <div className="relative text-zinc-900 h-screen flex gap-36 items-center flex-col">
+    <div className="relative text-zinc-900 h-fit flex gap-36 items-center flex-col">
       <Navbar />
 
       <div className="flex gap-8 justify-between h-fit mt-24 w-[90%] z-10">

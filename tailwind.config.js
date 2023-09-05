@@ -7,17 +7,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-      keyframes: {
-        slide: {
-          '0%': { transform: 'translateX(0%)'},
-          '100%': { transform: 'translateX(calc(-1*20rem*7))'},
-        }
-      },
       animation: {
-        sliding: 'slide 10s linear infinite',
-      },
-      left: {
-        '1/5': '20%',
+        'spin-slow': 'spin 10s linear infinite', 
       },
     },
   },

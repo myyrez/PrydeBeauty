@@ -6,15 +6,15 @@ import ShopButton from "../shared/ShopButton"
 import WishlistButton from '../shared/WishlistButton'
 
 type CardProps = {
-    odd: boolean;
+    addMarginTop: boolean;
     imagePath: string;
 }
 
 const ProductCard: React.FunctionComponent<CardProps> = (props) => {
-    const { odd, imagePath } = props;
+    const { addMarginTop, imagePath } = props;
 
     return (
-        <div className={`${odd ? 'mt-11' : 'mt-0'} relative flex flex-col gap-1 w-56 text-zinc-900`}>
+        <div className={`${addMarginTop ? 'mt-11' : 'mt-0'} relative flex flex-col gap-1 w-56 text-zinc-900`}>
 
             <WishlistButton />
             

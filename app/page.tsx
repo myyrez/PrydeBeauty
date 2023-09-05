@@ -18,7 +18,7 @@ export default function Home() {
         <Image className='absolute z-30 left-1/4 -translate-x-3/4' src='/images/heroImg3.png' height={240} width={190} alt='hero image 1'/>
         <Image className='absolute z-30 right-1/4 mt-24 translate-x-3/4' src='/images/heroImg4.png' height={320} width={180} alt='hero image 2'/>
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-36 h-28 w-28 -translate-x-8 rounded-full z-50 bg-zinc-50/40 backdrop-blur-sm'></div>
-        <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-32 w-32 rounded-full z-0 bg-gradient-to-br from-orange-600 to-yellow-400 blur-xl'></div>
+        <div className='absolute animate-spin-slow inset-x-0 inset-y-0 mx-auto mt-24 h-32 w-32 rounded-full z-0 bg-gradient-to-br from-orange-600 to-yellow-400 blur-xl'></div>
 
         <div className=''>
           <h1 className='text-9xl my-6 text-left text-zinc-900'>Beauty</h1>
@@ -43,9 +43,9 @@ export default function Home() {
       <div className='h-fit w-[90%] z-10'>
         <h1 className='text-4xl text-zinc-900'>Featured <span className='italic font-serif'>Collection</span></h1>
         <div className='flex justify-between py-10'>
-          <ProductCard {...{ odd: true, imagePath: '/images/shade1.png'}} />
-          <ProductCard {...{ odd: false, imagePath: '/images/shade2.png'}} />
-          <ProductCard {...{ odd: true, imagePath: '/images/shade3.png'}} />
+          <ProductCard {...{ addMarginTop: true, imagePath: '/images/shade1.png'}} />
+          <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} />
+          <ProductCard {...{ addMarginTop: true, imagePath: '/images/shade3.png'}} />
         </div>
       </div>
 
