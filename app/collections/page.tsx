@@ -12,31 +12,31 @@ export default function CollectionsPage() {
            <span className="italic font-serif">Cheeks Out Freestyle</span>
         </h1>
         <div className="flex justify-between py-10">
-          <ProductCard {...{ odd: true, imagePath: "/images/shade1.png" }} />
-          <ProductCard {...{ odd: false, imagePath: "/images/shade2.png" }} />
-          <ProductCard {...{ odd: true, imagePath: "/images/shade3.png" }} />
+          <ProductCard {...{ addMarginTop: true, imagePath: "/images/shade1.png" }} />
+          <ProductCard {...{ addMarginTop: false, imagePath: "/images/shade2.png" }} />
+          <ProductCard {...{ addMarginTop: true, imagePath: "/images/shade3.png" }} />
         </div>
         <div className="flex justify-between py-10">
-          <ProductCard {...{ odd: false, imagePath: "/images/shade1.png" }} />
-          <ProductCard {...{ odd: true, imagePath: "/images/shade2.png" }} />
-          <ProductCard {...{ odd: false, imagePath: "/images/shade3.png" }} />
+          <ProductCard {...{ addMarginTop: false, imagePath: "/images/shade1.png" }} />
+          <ProductCard {...{ addMarginTop: true, imagePath: "/images/shade2.png" }} />
+          <ProductCard {...{ addMarginTop: false, imagePath: "/images/shade3.png" }} />
         </div>
 
         <h1 className="text-4xl mt-24 text-zinc-900">
            <span className="italic font-serif">Golden Hour</span>
         </h1>
         <div className="flex justify-between py-10">
-          <ProductCard {...{ odd: true, imagePath: "/images/shade1.png" }} />
-          <ProductCard {...{ odd: false, imagePath: "/images/shade2.png" }} />
-          <ProductCard {...{ odd: true, imagePath: "/images/shade3.png" }} />
+          <ProductCard {...{ addMarginTop: true, imagePath: "/images/shade1.png" }} />
+          <ProductCard {...{ addMarginTop: false, imagePath: "/images/shade2.png" }} />
+          <ProductCard {...{ addMarginTop: true, imagePath: "/images/shade3.png" }} />
         </div>
 
         <h1 className="text-4xl mt-24 text-zinc-900">
            <span className="italic font-serif">Mother Nature's Blessing</span>
         </h1>
         <div className="flex justify-around py-10">
-          <ProductCard {...{ odd: false, imagePath: "/images/shade2.png" }} />
-          <ProductCard {...{ odd: false, imagePath: "/images/shade3.png" }} />
+          <ProductCard {...{ addMarginTop: false, imagePath: "/images/shade2.png" }} />
+          <ProductCard {...{ addMarginTop: false, imagePath: "/images/shade3.png" }} />
         </div>
       </div>
     </div>
