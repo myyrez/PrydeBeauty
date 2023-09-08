@@ -18,7 +18,7 @@ export default function ProductPage() {
 
         <div className="flex flex-col gap-2 w-2/5 p-4">
           <h1 className="text-2xl font-semibold">Product name</h1>
-          <h1 className="text-2xl font-semibold">Collection name</h1>
+          <h1 className="text-2xl font-semibold">Collectionname <span className="italic font-serif">Collection</span></h1>
           <div className='flex gap-1 mt-2 items-center font-semibold'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
 
           <h1 className="flex gap-1 text-sm mt-6 font-bold">
