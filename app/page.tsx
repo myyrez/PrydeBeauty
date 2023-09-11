@@ -62,11 +62,8 @@ export default function Home() {
         </div>
 
         <div className='flex flex-col justify-end h-80 gap-4 col-span-2'>
-          <p className='flex items-center'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt accusamus veniam officiis adipisci odit explicabo sunt dolores corrupti placeat!</p>
-          <Link href='/about' className='w-fit'>
-            <p className='font-bold flex items-center'>See more</p>
-            <div className='h-px w-1/6 ease-in-out duration-300 bg-zinc-900'></div>
-          </Link>
+          <p className='flex items-center'>At Pryde Beauty, we're passionate about helping you discover your unique beauty. Our curated selection of premium beauty products brings out your inner radiance. Explore, shop, and glow with us!</p>
+          
         </div>
 
         <div>
