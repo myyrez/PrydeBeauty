@@ -8,22 +8,53 @@ import WishlistButton from '../shared/WishlistButton'
 type CardProps = {
     addMarginTop: boolean;
     imagePath: string;
+    id: number;
+    name: string;
+    collection: string;
+    discountPercentage: number;
+    listPrice: number;
+    listPriceCents: number;
+    unitsRemaining: number;
 }
 
-const ProductCard: React.FunctionComponent<CardProps> = (props) => {
-    const { addMarginTop, imagePath } = props;
+const ProductCard: React.FC<CardProps> = (props) => {
+    const { 
+        addMarginTop, 
+        imagePath,
+        id,
+        name, 
+        collection,
+        discountPercentage, 
+        listPrice, 
+        listPriceCents, 
+        unitsRemaining 
+    } = props;
+
+    let productPriceSum = listPrice + ((listPriceCents/100))
+    let discountedPrice = (productPriceSum - ((productPriceSum * discountPercentage) / 100)).toFixed(2)
+    let newProductPrice = productPriceSum.toFixed(2)
 
     return (
         <div className={`${addMarginTop ? 'mt-11' : 'mt-0'} relative flex flex-col gap-1 w-60 text-zinc-900`}>
-
+            
             <WishlistButton />
             
             <Image src={imagePath} height={400} width={300} alt='product card image' />
-            <p className="text-xs font-extrabold uppercase">new shade</p>
-            <p className="text-sm font-semibold uppercase">Product name</p>
-            <p className="text-sm font-semibold uppercase italic">collection name</p>
-            <p className="text-sm">X units remaining</p>
-            <ShopButton />
+            <div className='flex gap-2'>
+                {discountPercentage > 0
+                    ? <p className="text-base font-extrabold uppercase">${discountedPrice}</p>
+                    : <p className="text-base font-extrabold uppercase">${newProductPrice}</p>
+                }
+                
+                {discountPercentage > 0 
+                    ? <p className='text-base font-bold text-red-500'>-{discountPercentage}% off</p>
+                    : <p className='hidden'></p>
+                }
+            </div>
+            <p className="text-base font-bold ">{name}</p>
+            <p className="text-base font-bold  italic">{collection}</p>
+            <p className="text-sm">{unitsRemaining} units remaining</p>
+            <ShopButton id={id} />
         </div>
     )
 }

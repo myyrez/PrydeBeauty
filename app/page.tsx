@@ -5,9 +5,28 @@ import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { FaStar } from 'react-icons/fa'
 import { BsArrowRightShort } from 'react-icons/bs'
-import { CiSearch, CiUser, CiHeart, CiMenuFries, CiShoppingCart } from 'react-icons/ci'
+import prisma from '@/db';
 
-export default function Home() {
+function getProducts() {
+  return prisma.product.findMany()
+}
+
+export default async function Home() {
+
+  const products = await getProducts()
+
+  // await prisma.product.create({ 
+  //   data: {
+  //     name: "produto1", 
+  //     collection: "golden hour", 
+  //     description: "lorem blablalbalbalbalbalblabalbla",
+  //     discountPercentage: 10,
+  //     listPrice: 149,
+  //     listPriceCents: 99,
+  //     unitsRemaining: 100
+  //   }
+  // })
+
   return (
     <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
 
@@ -43,9 +62,19 @@ export default function Home() {
       <div className='h-fit w-[90%] z-10'>
         <h1 className='text-4xl text-zinc-900'>Featured <span className='italic font-serif'>Collection</span></h1>
         <div className='flex justify-between py-10'>
-          <ProductCard {...{ addMarginTop: true, imagePath: '/images/shade1.png'}} />
-          <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} />
-          <ProductCard {...{ addMarginTop: true, imagePath: '/images/shade3.png'}} />
+          {products.filter(product => product.collection == 'Cheeks Out Freestyle').map(product => (
+            <ProductCard key={product.id} {...{ 
+              addMarginTop: false, 
+              imagePath: "/images/shade2.png",
+              id: product.id,
+              name: product.name,
+              collection: product.collection,
+              discountPercentage: product.discountPercentage,
+              listPrice: product.listPrice,
+              listPriceCents: product.listPriceCents,
+              unitsRemaining: product.unitsRemaining
+            }} />
+          ))}
         </div>
       </div>
 
