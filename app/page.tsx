@@ -15,18 +15,6 @@ export default async function Home() {
 
   const products = await getProducts()
 
-  // await prisma.product.create({ 
-  //   data: {
-  //     name: "produto1", 
-  //     collection: "golden hour", 
-  //     description: "lorem blablalbalbalbalbalblabalbla",
-  //     discountPercentage: 10,
-  //     listPrice: 149,
-  //     listPriceCents: 99,
-  //     unitsRemaining: 100
-  //   }
-  // })
-
   return (
     <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
 
