@@ -60,7 +60,9 @@ export default async function Home() {
               discountPercentage: product.discountPercentage,
               listPrice: product.listPrice,
               listPriceCents: product.listPriceCents,
-              unitsRemaining: product.unitsRemaining
+              unitsRemaining: product.unitsRemaining,
+              isInWishlist: product.isInWishlist,
+              isInCart: product.isInCart,
             }} />
           ))}
         </div>

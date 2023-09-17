@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { FaStar } from "react-icons/fa";
 import WishlistButton from "@/components/shared/WishlistButton";
 import prisma from "@/db";
+import setWishlisted from '@/components/shared/setWishlisted'
 
 export default async function ProductPage({ 
   params: { productId },
@@ -96,7 +97,10 @@ export default async function ProductPage({
             <p className='h-auto text-sm leading-[30px] font-bold'>Add to Cart</p>
           </div>
 
-          <WishlistButton />
+          <WishlistButton setWishlisted={setWishlisted} {...{
+            id: product.id, 
+            isInWishlist: product.isInWishlist
+          }} />
 
         </div>
       </div>

@@ -50,6 +50,10 @@ html {
     -webkit-text-stroke-width: 1px;
 }
 
+.clip-path {
+  clip-path: circle(50% at 50% 50%);
+}
+
 #path {
     filter: url(#blurFilter);
     -webkit-filter: url(#blurFilter);
