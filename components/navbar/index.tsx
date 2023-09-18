@@ -18,7 +18,7 @@ export default function Navbar() {
                 <Link href='/collections'>Collections</Link>
                 <div className='select-none'>.</div>
                 <Link href='/wishlist'><CiHeart className='text-2xl' /></Link>
-                <Link href='/account'><CiUser className='text-2xl' /></Link>
+                <Link href='/register'><CiUser className='text-2xl' /></Link>
                 <CartButton />
             </div>
         </nav>
