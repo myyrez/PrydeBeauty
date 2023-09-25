@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import prisma from '@/db';
 import { redirect } from 'next/navigation';
+import { hash } from 'bcrypt';
 
 async function createUser(data: FormData) {
     "use server"
@@ -13,7 +14,7 @@ async function createUser(data: FormData) {
         throw new Error("Invalid Name")
     }
 
-    const username = data.get("username")?.valueOf()
+    const username = data.get("email")?.valueOf()
     if (typeof username !== "string" || username.length === 0) {
         throw new Error("Invalid Username")
     }
@@ -23,11 +24,13 @@ async function createUser(data: FormData) {
         throw new Error("Invalid Username")
     }
 
+    const hashedPassword = await hash(password, 10)
+
     await prisma.user.create({
-        data: { name, username, password }
+        data: { name, username, password: hashedPassword }
     })
 
-    redirect("/")
+    redirect("/login")
 }
 
 const RegisterPage = () => {
@@ -39,10 +42,10 @@ const RegisterPage = () => {
             <form action={createUser} className='flex flex-col z-20 w-[90%] min-h-screen items-center justify-center gap-6'>
                 <h1 className='font-bold text-4xl italic font-serif'>Register</h1>
 
-                <p className='h-4 text-xs font-bold'>Obs: Don't use any private information. Credential is your account ID and username.</p>
+                <p className='h-4 text-xs font-bold'>Obs: Don't use any private information. Type anything@anything.com and a short password ;)</p>
                 <div className='flex flex-col gap-3'>
                     <input name='name' placeholder='Name' className='w-80 p-3 border-2 border-zinc-900 focus:outline-none'/>
-                    <input name='username' placeholder='Create Credential' className='w-80 p-3 border-2 border-zinc-900 focus:outline-none'/>
+                    <input name='email' placeholder='Create email' className='w-80 p-3 border-2 border-zinc-900 focus:outline-none'/>
                 </div>
                 <div className='flex flex-col gap-3'>
                     <input name='password' placeholder='Password' className='w-80 p-3 border-2 border-zinc-900 focus:outline-none'/>

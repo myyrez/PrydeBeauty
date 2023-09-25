@@ -22,27 +22,12 @@ model Product {
   isInWishlist       Boolean @default(false)
   isInCart           Boolean @default(false)
 
-  users UserProduct[]
 }
 
 model User {
   id       Int    @id @default(autoincrement())
   name     String
-  username String
+  username String @unique
   password String
 
-  products UserProduct[]
-}
-
-model UserProduct {
-  product   Product @relation(fields: [productId], references: [id])
-  productId Int
-  user      User    @relation(fields: [userId], references: [id])
-  userId    Int
-
-  isWishlisted Boolean @default(false)
-  isCarted     Boolean @default(false)
-  isPurchased  Boolean @default(false)
-
-  @@id([productId, userId])
 }

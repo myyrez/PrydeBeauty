@@ -7,17 +7,21 @@ import { FaStar } from 'react-icons/fa'
 import { BsArrowRightShort } from 'react-icons/bs'
 import prisma from '@/db';
 
+import { authOptions } from './api/auth/[...nextauth]/route';
+import { getServerSession } from 'next-auth';
+import { LoginButton, LogoutButton } from './auth';
+
 function getProducts() {
   return prisma.product.findMany()
 }
 
 export default async function Home() {
-
+  const session = await getServerSession(authOptions)
   const products = await getProducts()
 
   return (
     <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
-
+      <pre className='absolute top-0'>{JSON.stringify(session)}</pre>
       <Navbar />
 
       {/* hero section */}
