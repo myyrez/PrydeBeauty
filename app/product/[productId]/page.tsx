@@ -98,7 +98,6 @@ export default async function ProductPage({
 
           <WishlistButton setWishlisted={setWishlisted} {...{
             id: product.id, 
-            isInWishlist: product.isInWishlist
           }} />
 
         </div>

@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Product {
-  id                 Int     @id @default(autoincrement())
+  id                 Int    @id @default(autoincrement())
   name               String
   collection         String
   description        String
@@ -19,9 +19,13 @@ model Product {
   listPrice          Int
   listPriceCents     Int
   unitsRemaining     Int
-  isInWishlist       Boolean @default(false)
-  isInCart           Boolean @default(false)
 
+  wishlistedBy   User? @relation("wishlisted", fields: [wishlistedById], references: [id])
+  wishlistedById Int?
+  cartedBy       User? @relation("carted", fields: [cartedById], references: [id])
+  cartedById     Int?
+  purchasedBy    User? @relation("purchased", fields: [purchasedById], references: [id])
+  purchasedById  Int?
 }
 
 model User {
@@ -30,4 +34,7 @@ model User {
   username String @unique
   password String
 
+  wishlistedProducts Product[] @relation("wishlisted")
+  cartedProducts     Product[] @relation("carted")
+  purchasedProducts  Product[] @relation("purchased")
 }

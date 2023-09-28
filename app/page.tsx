@@ -17,7 +17,7 @@ function getProducts() {
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  const products = await getProducts()
+  const products = await prisma.product.findMany()
 
   return (
     <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
@@ -65,8 +65,6 @@ export default async function Home() {
               listPrice: product.listPrice,
               listPriceCents: product.listPriceCents,
               unitsRemaining: product.unitsRemaining,
-              isInWishlist: product.isInWishlist,
-              isInCart: product.isInCart,
             }} />
           ))}
         </div>

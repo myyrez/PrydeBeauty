@@ -15,8 +15,6 @@ type CardProps = {
     listPrice: number;
     listPriceCents: number;
     unitsRemaining: number;
-    isInWishlist: boolean;
-    isInCart: boolean;
 }
 
 const ProductCard: React.FC<CardProps> = (props) => {
@@ -30,8 +28,6 @@ const ProductCard: React.FC<CardProps> = (props) => {
         listPrice, 
         listPriceCents, 
         unitsRemaining,
-        isInWishlist,
-        isInCart,
     } = props;
 
     let productPriceSum = listPrice + ((listPriceCents/100))
@@ -41,7 +37,7 @@ const ProductCard: React.FC<CardProps> = (props) => {
     return (
         <div className={`${addMarginTop ? 'mt-11' : 'mt-0'} relative flex flex-col gap-1 w-60 text-zinc-900`}>
             
-            <WishlistButton setWishlisted={setWishlisted} {...{id, isInWishlist}} />
+            <WishlistButton setWishlisted={setWishlisted} {...{id }} />
             
             <Image src={imagePath} height={400} width={300} alt='product card image' />
             <div className='flex gap-2'>
