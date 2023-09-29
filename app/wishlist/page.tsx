@@ -1,10 +1,21 @@
-'use client'
-
 import React, { useState } from 'react'
 import Navbar from "@/components/Navbar";
 import WishlistCard from '@/components/WishlistCard';
+import prisma from '@/db';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
-export default function WishlistPage() {
+export default async function WishlistPage() {
+    const products = await prisma.product.findMany()
+    const session = await getServerSession(authOptions)
+    const userIdToString: string = session?.user.id + ''
+
+    const wishlists = await prisma.userWishlisted.findMany({
+        where: {
+            userId: parseInt(userIdToString)
+        }
+    })
+
     return (
         <div className="relative flex justify-center h-fit text-stone-900">
             <Navbar />
@@ -14,8 +25,19 @@ export default function WishlistPage() {
                 <h1 className="text-4xl">Your <span className='italic font-serif'>wishlist</span></h1>
                 <input placeholder='Search by name or collection' className='w-96 p-3 border-2 border-zinc-900 focus:outline-none'/>
 
-                <WishlistCard/>
-                <WishlistCard/>
+                {wishlists.map(wishlist => (
+                    products.map(product => (
+                        <WishlistCard key={wishlist.id} {...{
+                            id: product.id,
+                            name: product.name,
+                            collection: product.collection,
+                            discountPercentage: product.discountPercentage,
+                            listPrice: product.listPrice,
+                            listPriceCents: product.listPriceCents,
+                            unitsRemaining: product.unitsRemaining,
+                        }}/>
+                    ))
+                ))}
             </div>
         </div>
     )

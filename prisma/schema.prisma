@@ -20,12 +20,16 @@ model Product {
   listPriceCents     Int
   unitsRemaining     Int
 
-  wishlistedBy   User? @relation("wishlisted", fields: [wishlistedById], references: [id])
-  wishlistedById Int?
-  cartedBy       User? @relation("carted", fields: [cartedById], references: [id])
-  cartedById     Int?
-  purchasedBy    User? @relation("purchased", fields: [purchasedById], references: [id])
-  purchasedById  Int?
+  wishlists UserWishlisted[]
+  carts     UserCarted[]
+  purchases UserPurchased[]
+
+  // wishlistedBy   User? @relation("wishlisted", fields: [wishlistedById], references: [id])
+  // wishlistedById Int?
+  // cartedBy       User? @relation("carted", fields: [cartedById], references: [id])
+  // cartedById     Int?
+  // purchasedBy    User? @relation("purchased", fields: [purchasedById], references: [id])
+  // purchasedById  Int?
 }
 
 model User {
@@ -34,7 +38,35 @@ model User {
   username String @unique
   password String
 
-  wishlistedProducts Product[] @relation("wishlisted")
-  cartedProducts     Product[] @relation("carted")
-  purchasedProducts  Product[] @relation("purchased")
+  wishlists UserWishlisted[]
+  carts     UserCarted[]
+  purchases UserPurchased[]
+
+  // wishlistedProducts Product[] @relation("wishlisted")
+  // cartedProducts     Product[] @relation("carted")
+  // purchasedProducts  Product[] @relation("purchased")
+}
+
+model UserWishlisted {
+  id        Int      @id @default(autoincrement())
+  User      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  Product   Product @relation(fields: [productId], references: [id])
+  productId Int
+}
+
+model UserCarted {
+  id        Int      @id @default(autoincrement())
+  User      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  Product   Product @relation(fields: [productId], references: [id])
+  productId Int
+}
+
+model UserPurchased {
+  id        Int      @id @default(autoincrement())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
 }

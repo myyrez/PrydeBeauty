@@ -4,6 +4,8 @@ import ShopButton from "../shared/ShopButton"
 import WishlistButton from '../shared/WishlistButton'
 import prisma from '@/db'
 import setWishlisted from '@/components/shared/setWishlisted'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 type CardProps = {
     addMarginTop: boolean;
@@ -17,7 +19,7 @@ type CardProps = {
     unitsRemaining: number;
 }
 
-const ProductCard: React.FC<CardProps> = (props) => {
+const ProductCard: React.FC<CardProps> = async (props) => {
     const { 
         addMarginTop, 
         imagePath,
@@ -34,10 +36,26 @@ const ProductCard: React.FC<CardProps> = (props) => {
     let discountedPrice = (productPriceSum - ((productPriceSum * discountPercentage) / 100)).toFixed(2)
     let newProductPrice = productPriceSum.toFixed(2)
 
+    const session = await getServerSession(authOptions)
+    if (session == undefined) return
+    const userIdToString: string = session?.user.id + ''
+
+    var isProductWishlisted: boolean
+
+    const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
+        where: { productId: id, userId: parseInt(userIdToString) }
+    })
+
+    if (checkIfProductWishlisted.length == 0) {
+        isProductWishlisted = false
+    } else {
+        isProductWishlisted = true
+    }
+
     return (
         <div className={`${addMarginTop ? 'mt-11' : 'mt-0'} relative flex flex-col gap-1 w-60 text-zinc-900`}>
             
-            <WishlistButton setWishlisted={setWishlisted} {...{id }} />
+            <WishlistButton setWishlisted={setWishlisted} {...{ id, isProductWishlisted }} />
             
             <Image src={imagePath} height={400} width={300} alt='product card image' />
             <div className='flex gap-2'>

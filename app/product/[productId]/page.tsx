@@ -6,6 +6,8 @@ import WishlistButton from "@/components/shared/WishlistButton";
 import prisma from "@/db";
 import setWishlisted from '@/components/shared/setWishlisted'
 import AddToCartButton from "@/components/AddToCartButton";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function ProductPage({ 
   params: { productId },
@@ -31,6 +33,21 @@ export default async function ProductPage({
   for (let i = 1; i <= productQuantity; i++) {
     quantityArr.push(<option key={i} value={i}>{i}</option>)
   }
+
+  const session = await getServerSession(authOptions)
+    if (session == undefined) return
+    const userIdToString: string = session?.user.id + ''
+    var isProductWishlisted: boolean
+
+    const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
+        where: { productId: product.id, userId: parseInt(userIdToString) }
+    })
+
+    if (checkIfProductWishlisted.length == 0) {
+        isProductWishlisted = false
+    } else {
+        isProductWishlisted = true
+    }
 
   return (
     <div className="relative text-zinc-900 h-fit flex gap-36 items-center flex-col">
@@ -98,6 +115,7 @@ export default async function ProductPage({
 
           <WishlistButton setWishlisted={setWishlisted} {...{
             id: product.id, 
+            isProductWishlisted
           }} />
 
         </div>
