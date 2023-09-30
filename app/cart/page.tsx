@@ -3,8 +3,22 @@ import Navbar from '@/components/Navbar';
 import WishlistCard from '@/components/WishlistCard';
 import CartCard from '@/components/CartCard';
 import ProductCard from '@/components/ProductCard';
+import RemoveAllFromCart from '@/components/RemoveAllFromCartButton';
+import prisma from '@/db';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
-const CartPage = () => {
+const CartPage = async () => {
+    const session = await getServerSession(authOptions)
+    const userIdToString: string = session?.user.id + ''
+
+    const products = await prisma.product.findMany()
+    const carts = await prisma.userCarted.findMany({
+        where: {
+            userId: parseInt(userIdToString)
+        }
+    })
+
     return (
         <div className='relative flex justify-center h-fit text-stone-900'>
             <Navbar />
@@ -14,9 +28,19 @@ const CartPage = () => {
             <div className='flex z-20 w-[90%] h-fit justify-between gap-6 mt-24'>
                 <div className='w-3/4 h-fit'>
                     <h1 className='text-2xl font-semibold italic font-serif pt-4'>Shopping Cart</h1>
-                    <CartCard />
-                    <CartCard />
-                    <CartCard />
+                    {carts.map(cart => (
+                        products.map(product => (
+                            <CartCard key={cart.id} {...{
+                                id: product.id,
+                                name: product.name,
+                                collection: product.collection,
+                                discountPercentage: product.discountPercentage,
+                                listPrice: product.listPrice,
+                                listPriceCents: product.listPriceCents,
+                                unitsRemaining: product.unitsRemaining,
+                            }} />
+                        ))
+                    ))}
 
                     <div className='flex justify-between h-fit p-4 px-8 mt-8 bg-stone-800/5 backdrop-blur-sm'>
                         <div className='flex items-center gap-4'>
@@ -32,18 +56,15 @@ const CartPage = () => {
                                 <h1 className='flex h-auto m-auto gap-1 font-bold text-zinc-50'>Purchase</h1>
                             </div>
 
-                            <h1 className="text-xs font-bold">
-                                Remove All
-                                <div className='h-px w-full ease-in-out duration-300 bg-zinc-900'></div>
-                            </h1>
+                            <RemoveAllFromCart />
                         </div>
                     </div>
                 </div>
 
                 <div className='flex flex-col gap-4 items-center pb-4 w-1/4'>
                     <h1 className='text-2xl font-semibold italic font-serif pt-4'>Also Check</h1>
-                    <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} />
-                    <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} />
+                    {/* <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} />
+                    <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} /> */}
                 </div>
             </div>
         </div>

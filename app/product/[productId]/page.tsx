@@ -21,6 +21,8 @@ export default async function ProductPage({
     where: {id: parseInt(productId)}
   })
 
+  
+
   let productPriceSum = product.listPrice + ((product.listPriceCents/100))
   let discountedPrice = Math.floor(productPriceSum - ((productPriceSum * product.discountPercentage) / 100))
   let discountedCents = (productPriceSum - ((productPriceSum * product.discountPercentage) / 100)).toFixed(2)
@@ -35,19 +37,30 @@ export default async function ProductPage({
   }
 
   const session = await getServerSession(authOptions)
-    if (session == undefined) return
-    const userIdToString: string = session?.user.id + ''
-    var isProductWishlisted: boolean
+  if (session == undefined) return
+  const userIdToString: string = session?.user.id + ''
 
-    const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
-        where: { productId: product.id, userId: parseInt(userIdToString) }
-    })
+  var isProductWishlisted: boolean
+  const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
+    where: { productId: product.id, userId: parseInt(userIdToString) }
+  })
 
-    if (checkIfProductWishlisted.length == 0) {
-        isProductWishlisted = false
-    } else {
-        isProductWishlisted = true
-    }
+  if (checkIfProductWishlisted.length == 0) {
+    isProductWishlisted = false
+  } else {
+    isProductWishlisted = true
+  }
+
+  var isProductCarted: boolean
+  const checkIfProductCarted = await prisma.userCarted.findMany({
+    where: { productId: product.id, userId: parseInt(userIdToString) }
+  })
+
+  if (checkIfProductCarted.length == 0) {
+    isProductCarted = false
+  } else {
+    isProductCarted = true
+  }
 
   return (
     <div className="relative text-zinc-900 h-fit flex gap-36 items-center flex-col">
@@ -111,7 +124,7 @@ export default async function ProductPage({
             </select>
           </div>
 
-          <AddToCartButton />
+          <AddToCartButton {...{pageProductId: product.id, isProductCarted}} />
 
           <WishlistButton setWishlisted={setWishlisted} {...{
             id: product.id, 
