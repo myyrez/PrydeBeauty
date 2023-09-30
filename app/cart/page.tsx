@@ -16,6 +16,9 @@ const CartPage = async () => {
     const carts = await prisma.userCarted.findMany({
         where: {
             userId: parseInt(userIdToString)
+        },
+        include: {
+            Product: true
         }
     })
 
@@ -29,20 +32,18 @@ const CartPage = async () => {
                 <div className='w-3/4 h-fit'>
                     <h1 className='text-2xl font-semibold italic font-serif pt-4'>Shopping Cart</h1>
                     {carts.map(cart => (
-                        products.map(product => (
-                            <CartCard key={cart.id} {...{
-                                id: product.id,
-                                name: product.name,
-                                collection: product.collection,
-                                discountPercentage: product.discountPercentage,
-                                listPrice: product.listPrice,
-                                listPriceCents: product.listPriceCents,
-                                unitsRemaining: product.unitsRemaining,
-                            }} />
-                        ))
+                        <CartCard key={cart.id} {...{
+                            id: cart.Product.id,
+                            name: cart.Product.name,
+                            collection: cart.Product.collection,
+                            discountPercentage: cart.Product.discountPercentage,
+                            listPrice: cart.Product.listPrice,
+                            listPriceCents: cart.Product.listPriceCents,
+                            unitsRemaining: cart.Product.unitsRemaining,
+                        }} />
                     ))}
 
-                    <div className='flex justify-between h-fit p-4 px-8 mt-8 bg-stone-800/5 backdrop-blur-sm'>
+                    <div className='flex justify-between h-fit p-4 px-8 my-8 bg-stone-800/5 backdrop-blur-sm'>
                         <div className='flex items-center gap-4'>
                             <h1 className='text-2xl font-bold'>Estimated Total:</h1>
 

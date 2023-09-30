@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Navbar from "@/components/Navbar";
 import WishlistCard from '@/components/WishlistCard';
 import prisma from '@/db';
+import { Product } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/route';
 
@@ -13,6 +15,9 @@ export default async function WishlistPage() {
     const wishlists = await prisma.userWishlisted.findMany({
         where: {
             userId: parseInt(userIdToString)
+        },
+        include: {
+            Product: true
         }
     })
 
@@ -26,17 +31,15 @@ export default async function WishlistPage() {
                 <input placeholder='Search by name or collection' className='w-96 p-3 border-2 border-zinc-900 focus:outline-none'/>
 
                 {wishlists.map(wishlist => (
-                    products.map(product => (
-                        <WishlistCard key={wishlist.id} {...{
-                            id: product.id,
-                            name: product.name,
-                            collection: product.collection,
-                            discountPercentage: product.discountPercentage,
-                            listPrice: product.listPrice,
-                            listPriceCents: product.listPriceCents,
-                            unitsRemaining: product.unitsRemaining,
-                        }}/>
-                    ))
+                    <WishlistCard key={wishlist.id} {...{
+                        id: wishlist.Product.id,
+                        name: wishlist.Product.name,
+                        collection: wishlist.Product.collection,
+                        discountPercentage: wishlist.Product.discountPercentage,
+                        listPrice: wishlist.Product.listPrice,
+                        listPriceCents: wishlist.Product.listPriceCents,
+                        unitsRemaining: wishlist.Product.unitsRemaining,
+                    }}/>
                 ))}
             </div>
         </div>
