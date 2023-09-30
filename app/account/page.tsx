@@ -14,11 +14,21 @@ function getUsers() {
 
 const AccountPage = async () => {
     const session = await getServerSession(authOptions)
-    const users = await getUsers()
+    const userIdToString: string = session?.user.id + ''
 
     if (!session) {
         redirect('/api/auth/signin')
     }
+
+    const users = await getUsers()
+    const purchases = await prisma.userPurchased.findMany({
+        where: {
+            userId: parseInt(userIdToString)
+        },
+        include: {
+            product: true
+        }
+    })
 
     return (
         <div className='relative flex justify-center h-fit text-stone-900'>
@@ -41,8 +51,12 @@ const AccountPage = async () => {
                         <div className='flex gap-4 w-1/2 justify-center'>
                             <div className='flex flex-col items-center w-full h-fit'>
                                 <h1 className='font-bold text-2xl'>Your purchases</h1>
-                                
-                                <PurchaseCard />
+                                {purchases.map(purchase => (
+                                    <PurchaseCard key={purchase.id} {...{
+                                        name: purchase.product.name,
+                                        collection: purchase.product.collection
+                                    }} />
+                                ))}
                             </div>
                         </div>
                     </div>
