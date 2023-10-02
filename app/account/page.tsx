@@ -43,7 +43,7 @@ const AccountPage = async () => {
                     <div className='flex items-start w-full'>
                         <div className='flex flex-col gap-4 w-1/2 items-center justify-center'>
                             <h1 className='font-bold text-2xl'>Name: <span>{user.name}</span></h1>
-                            <h1 className='font-bold text-2xl'>Credential: <span>{user.username}</span></h1>
+                            <h1 className='font-bold text-2xl'>Email: <span>{user.username}</span></h1>
                             
                             <LogoutButton />
                         </div>
