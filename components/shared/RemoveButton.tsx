@@ -1,15 +1,18 @@
 'use client'
 
 import removeCarted from "./removeCarted";
+import { useRouter } from "next/navigation";
 
 type RemoveButtonProps = {
   id: number,
 }
 
 export default function RemoveButton({ id }: RemoveButtonProps) {
-
+  const router = useRouter()
+  
   function removeFromCart() {
     removeCarted(id)
+    router.refresh()
   }
 
   return (

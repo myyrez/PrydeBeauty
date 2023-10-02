@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CiShoppingCart } from "react-icons/ci";
 
-export default function ShopButton() {
+export default function CartButton() {
   return (
     <Link href="/cart">
       <div className="relative bg-zinc-900 rounded-full h-10 w-10 flex justify-center items-center">

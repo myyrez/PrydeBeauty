@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { LiaHeart, LiaHeartSolid } from 'react-icons/lia'
 import { useSession } from 'next-auth/react'
 import { redirect } from "next/navigation"
+import { useRouter } from "next/navigation";
 
 type WishlistButtonProps = {
   id: number;
@@ -13,6 +14,7 @@ type WishlistButtonProps = {
 
 export default function WishlistButton({ id, isProductWishlisted, setWishlisted}: WishlistButtonProps)  {
   const [isWishlisted, setIsWishlisted] = useState(isProductWishlisted)
+  const router = useRouter()
 
   const { status } = useSession({
     required: true,
@@ -25,13 +27,9 @@ export default function WishlistButton({ id, isProductWishlisted, setWishlisted}
   }
 
   const addToWishlist = () => {
-    if (status !== 'authenticated') {
-      redirect('/api/auth/signin')
-    }
-    if (!isWishlisted) {
-      setIsWishlisted(true)
-    }
-      if (isWishlisted) setIsWishlisted(false)
+    if (!isWishlisted) setIsWishlisted(true)
+    if (isWishlisted) setIsWishlisted(false)
+    router.refresh()
   }
 
   return (

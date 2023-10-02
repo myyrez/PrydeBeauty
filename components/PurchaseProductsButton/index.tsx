@@ -1,11 +1,14 @@
 'use client'
 
 import PurchaseCarted from "../shared/PurchaseCarted";
+import { useRouter } from "next/navigation";
 
 export default function PurchaseProductsButton() {
+  const router = useRouter()
 
   function callPurchase() {
     PurchaseCarted()
+    router.refresh()
   }
 
   return (
