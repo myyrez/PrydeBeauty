@@ -33,7 +33,7 @@ export default function AddToCartButton({ pageProductId, isProductCarted}: CartB
     return (
         <>
             {/* <input type='checkbox' onClick={addToCart} onChange={e => setCarted(pageProductId, e.target.checked)} className='absolute'/> */}
-            <div onClick={addToCart} className='flex justify-center w-4/5 m-auto mt-4 py-1 px-4 bg-stone-900 text-zinc-50 cursor-pointer'>
+            <div onClick={addToCart} className='flex justify-center w-full h-full m-auto py-1 px-4 bg-stone-900 text-zinc-50 cursor-pointer'>
                 <p className='h-auto text-sm leading-[30px] font-semibold'>
                     {updateButton
                         ? <BsCheck2 className='text-3xl leading-[30px]' />
