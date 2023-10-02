@@ -12,6 +12,10 @@ import PurchaseProductsButton from '@/components/PurchaseProductsButton';
 const CartPage = async () => {
     const session = await getServerSession(authOptions)
     const userIdToString: string = session?.user.id + ''
+    var itemsPriceSum: number = 0
+    var itemsCentsSum: number = 0
+    var itemsSum: number = itemsPriceSum + (itemsCentsSum / 100)
+    
 
     const products = await prisma.product.findMany()
     const carts = await prisma.userCarted.findMany({
@@ -23,6 +27,9 @@ const CartPage = async () => {
         }
     })
 
+    carts.map(cart => { return itemsPriceSum += ((cart.Product.listPrice + (cart.Product.listPriceCents / 100)) - (((cart.Product.listPrice + (cart.Product.listPriceCents / 100)) * cart.Product.discountPercentage) / 100)) })
+    carts.map(cart => { return itemsCentsSum += (cart.Product.listPriceCents - ((cart.Product.listPriceCents * cart.Product.discountPercentage) / 100)) })
+    var newItemsCents: string = (itemsCentsSum / 100).toFixed(2)
     return (
         <div className='relative flex justify-center h-fit text-stone-900'>
             <Navbar />
@@ -42,14 +49,19 @@ const CartPage = async () => {
                             listPriceCents: cart.Product.listPriceCents,
                             unitsRemaining: cart.Product.unitsRemaining,
                         }} />
+                        
                     ))}
 
                     <div className='flex justify-between h-fit p-4 px-8 my-8 bg-stone-800/5 backdrop-blur-sm'>
                         <div className='flex items-center gap-4'>
                             <h1 className='text-2xl font-bold'>Estimated Total:</h1>
 
-                            <h1 className="flex h-auto gap-1 text-xs font-bold">
-                                $ <span className="text-xl leading-none">300</span> 00
+                            <h1 className="flex h-auto gap-1 text-sm font-bold">
+                                $
+                                <span className="text-2xl leading-none">
+                                    {Math.floor(itemsPriceSum).toFixed(0)}
+                                </span>
+                                {itemsPriceSum.toFixed(2).split(".")[1]}
                             </h1>
                         </div>
 

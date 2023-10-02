@@ -2,6 +2,7 @@ import Link from 'next/link'
 import CartButton from "../shared/CartButton"
 import { FaStarOfLife } from 'react-icons/fa'
 import { CiSearch, CiUser, CiHeart, CiMenuFries, CiShoppingCart } from 'react-icons/ci'
+import WishlistNavButton from '../WishlistNavButton'
 
 export default function Navbar() {
     return (
@@ -17,7 +18,7 @@ export default function Navbar() {
             <div className='my-6 mr-20 text-zinc-900 font-semibold flex gap-6 items-center'>
                 <Link href='/collections'>Collections</Link>
                 <div className='select-none'>.</div>
-                <Link href='/wishlist'><CiHeart className='text-2xl' /></Link>
+                <WishlistNavButton />
                 <Link href='/account'><CiUser className='text-2xl' /></Link>
                 <CartButton />
             </div>
