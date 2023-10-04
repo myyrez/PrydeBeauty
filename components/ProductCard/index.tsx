@@ -36,21 +36,24 @@ const ProductCard: React.FC<CardProps> = async (props) => {
     let discountedPrice = (productPriceSum - ((productPriceSum * discountPercentage) / 100)).toFixed(2)
     let newProductPrice = productPriceSum.toFixed(2)
 
-    const session = await getServerSession(authOptions)
-    if (session == undefined) return
-    const userIdToString: string = session?.user.id + ''
-
     var isProductWishlisted: boolean
-
-    const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
-        where: { productId: id, userId: parseInt(userIdToString) }
-    })
-
-    if (checkIfProductWishlisted.length == 0) {
+    const session = await getServerSession(authOptions)
+    const userIdToString: string = session?.user.id + ''
+    if (session == undefined) {
         isProductWishlisted = false
     } else {
-        isProductWishlisted = true
+        const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
+            where: { productId: id, userId: parseInt(userIdToString) }
+        })
+    
+        if (checkIfProductWishlisted.length == 0) {
+            isProductWishlisted = false
+        } else {
+            isProductWishlisted = true
+        }
     }
+
+
 
     return (
         <div className={`${addMarginTop ? 'mt-11' : 'mt-0'} relative flex flex-col gap-1 w-60 text-zinc-900`}>

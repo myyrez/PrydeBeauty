@@ -42,7 +42,7 @@ const RegisterPage = () => {
             <form action={createUser} className='flex flex-col z-20 w-[90%] min-h-screen items-center justify-center gap-6'>
                 <h1 className='font-bold text-4xl italic font-serif'>Register</h1>
 
-                <p className='h-4 text-xs font-bold'>Obs: Don't use any private information. Type anything@anything.com and a short password ;)</p>
+                <p className='h-4 text-xs font-bold'>Obs: Don't use any private information. Type yourName@whatever.com and a short password ;)</p>
                 <div className='flex flex-col gap-3'>
                     <input name='name' placeholder='Name' className='w-80 p-3 border-2 border-zinc-900 focus:outline-none'/>
                     <input name='email' placeholder='Create email' className='w-80 p-3 border-2 border-zinc-900 focus:outline-none'/>

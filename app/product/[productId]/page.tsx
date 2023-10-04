@@ -36,31 +36,35 @@ export default async function ProductPage({
     quantityArr.push(<option key={i} value={i}>{i}</option>)
   }
 
-  const session = await getServerSession(authOptions)
-  if (session == undefined) return
-  const userIdToString: string = session?.user.id + ''
-
+  var isProductCarted: boolean
   var isProductWishlisted: boolean
-  const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
-    where: { productId: product.id, userId: parseInt(userIdToString) }
-  })
-
-  if (checkIfProductWishlisted.length == 0) {
+  const session = await getServerSession(authOptions)
+  const userIdToString: string = session?.user.id + ''
+  if (session == undefined) {
+    isProductCarted = false
     isProductWishlisted = false
   } else {
-    isProductWishlisted = true
+    const checkIfProductWishlisted = await prisma.userWishlisted.findMany({
+      where: { productId: product.id, userId: parseInt(userIdToString) }
+    })
+  
+    if (checkIfProductWishlisted.length == 0) {
+      isProductWishlisted = false
+    } else {
+      isProductWishlisted = true
+    }
+  
+    const checkIfProductCarted = await prisma.userCarted.findMany({
+      where: { productId: product.id, userId: parseInt(userIdToString) }
+    })
+  
+    if (checkIfProductCarted.length == 0) {
+      isProductCarted = false
+    } else {
+      isProductCarted = true
+    }
   }
 
-  var isProductCarted: boolean
-  const checkIfProductCarted = await prisma.userCarted.findMany({
-    where: { productId: product.id, userId: parseInt(userIdToString) }
-  })
-
-  if (checkIfProductCarted.length == 0) {
-    isProductCarted = false
-  } else {
-    isProductCarted = true
-  }
 
   return (
     <div className="relative text-zinc-900 h-fit flex gap-36 items-center flex-col">

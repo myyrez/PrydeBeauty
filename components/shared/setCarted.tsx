@@ -2,10 +2,11 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import prisma from "@/db"
 import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
 
 export default async function setCarted(id: number) {
     const session = await getServerSession(authOptions)
-    if (session == undefined) return
+    if (session == undefined) redirect('/api/auth/signin')
     const userIdToString: string = session?.user.id + ''
 
     var isAlreadyCarted: boolean

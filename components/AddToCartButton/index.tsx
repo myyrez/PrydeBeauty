@@ -17,12 +17,12 @@ export default function AddToCartButton({ pageProductId, isProductCarted}: CartB
     const [updateButton, setUpdateButton] = useState(isProductCarted)
     const router = useRouter()
 
-    const { status } = useSession({
-        required: true,
-        onUnauthenticated() {
-            redirect('/api/auth/signin')
-        }
-    })
+    // const { status } = useSession({
+    //     required: true,
+    //     onUnauthenticated() {
+    //         redirect('/api/auth/signin')
+    //     }
+    // })
 
     function addToCart() {
         setCarted(pageProductId)
