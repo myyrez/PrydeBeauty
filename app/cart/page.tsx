@@ -17,6 +17,7 @@ const CartPage = async () => {
     
 
     const products = await prisma.product.findMany({
+        distinct: ['collection'],
         take: 2
     })
     const carts = await prisma.userCarted.findMany({

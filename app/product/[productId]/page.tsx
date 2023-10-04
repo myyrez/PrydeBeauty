@@ -99,8 +99,10 @@ export default async function ProductPage({
 
           <p className="text-sm font-semibold">List price: ${product.listPrice}.{product.listPriceCents}</p>
 
-          <h1 className="font-bold mt-4">Product description</h1>
-          <p className="text-sm">{product.description}</p>
+          <div className="mt-4 p-4 bg-stone-400/5 backdrop-blur-sm">
+            <h1 className="font-extrabold italic mb-2">Product description:</h1>
+            <p className="text-base font-semibold">{product.description}</p>
+          </div>
         </div>
 
         <div className="relative flex flex-col gap-6 w-80 p-4 h-fit">

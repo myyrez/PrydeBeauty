@@ -17,7 +17,9 @@ function getProducts() {
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  const products = await prisma.product.findMany()
+  const products = await prisma.product.findMany({
+    take: 3
+  })
 
   return (
     <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
@@ -53,7 +55,7 @@ export default async function Home() {
       {/* featured collection section */}
       <div className='h-fit w-[90%] z-10'>
         <h1 className='text-4xl text-zinc-900'>Featured <span className='italic font-serif'>Collection</span></h1>
-        <div className='flex justify-between py-10'>
+        <div className='flex justify-around py-10'>
           {products.filter(product => product.collection == 'Cheeks Out Freestyle').map(product => (
             <ProductCard key={product.id} {...{ 
               addMarginTop: false, 
@@ -101,8 +103,8 @@ export default async function Home() {
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-96 w-96 rounded-full z-20 bg-gradient-to-b from-yellow-400 to-stone-50 blur-2xl'></div>
 
         <div className='w-full text-center align-center'>
-          <h1 className='text-5xl'>Our best seller from <span className='italic font-serif'>Time to Still</span></h1>
-          <Link href='/product' className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
+          <h1 className='text-5xl'>Our best seller from <span className='italic font-serif'>Golden Hour</span></h1>
+          <Link href='/product/4' className='flex justify-center w-56 m-auto mt-12 py-1 px-4 border-solid border-2 border-zinc-900'>
             <p className='h-auto text-sm leading-[30px] font-bold'>Shop this product</p>
           </Link>
         </div>

@@ -13,7 +13,7 @@ export default async function CollectionsPage() {
         <h1 className="text-4xl mt-24 text-zinc-900">
           <span className="italic font-serif">Cheeks Out Freestyle</span>
         </h1>
-        <div className="flex justify-between py-10">
+        <div className="flex justify-around py-10">
           {products.filter(product => product.collection == 'Cheeks Out Freestyle').map(product => (
             <ProductCard key={product.id} {...{ 
               addMarginTop: false, 
@@ -28,14 +28,14 @@ export default async function CollectionsPage() {
             }} />
           ))}
         </div>
-        <div className="flex justify-between py-10">
+        <div className="flex justify-around py-10">
 
         </div>
 
         <h1 className="text-4xl mt-24 text-zinc-900">
           <span className="italic font-serif">Golden Hour</span>
         </h1>
-        <div className="flex justify-between py-10">
+        <div className="flex justify-around py-10">
           {products.filter(product => product.collection == 'Golden Hour').map(product => (
             <ProductCard key={product.id} {...{ 
               addMarginTop: false, 

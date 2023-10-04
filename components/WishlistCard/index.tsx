@@ -91,7 +91,7 @@ const WishlistCard: React.FunctionComponent<WishlistCardProps> = async (props) =
                         </h1>
                     </div>
 
-                :   <div className='flex absolute right-40 bottom-8 justify-center w-24 h-11 mx-auto py-1 px-4 border-solid border-2 bg-stone-900 text-stone-50 border-zinc-900'>
+                :   <div className='flex absolute right-40 bottom-8 justify-center w-24 h-11 mx-auto py-1 px-4 border-solid border-2 bg-zinc-50 text-zinc-900 border-zinc-900'>
                         <h1 className="flex h-auto m-auto gap-1 text-xs font-bold">
                             $ <span className="text-xl leading-none">{listPrice}</span> {listPriceCents}
                         </h1>

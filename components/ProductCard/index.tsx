@@ -72,8 +72,8 @@ const ProductCard: React.FC<CardProps> = async (props) => {
                     : <p className='hidden'></p>
                 }
             </div>
-            <p className="text-base font-bold ">{name}</p>
-            <p className="text-base font-bold  italic">{collection}</p>
+            <p className="text-lg font-semibold">{name}</p>
+            <p className="text-sm font-semibold italic">{collection}</p>
             <p className="text-sm">{unitsRemaining} units remaining</p>
             <ShopButton id={id} />
         </div>
