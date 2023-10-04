@@ -28,7 +28,6 @@ export default async function WishlistPage() {
 
             <div className="flex z-20 flex-col w-4/5 h-fit gap-6 p-4 mt-24">
                 <h1 className="text-4xl">Your <span className='italic font-serif'>wishlist</span></h1>
-                <input placeholder='Search by name or collection' className='w-96 p-3 border-2 border-zinc-900 focus:outline-none'/>
 
                 {wishlists.map(wishlist => (
                     <WishlistCard key={wishlist.id} {...{

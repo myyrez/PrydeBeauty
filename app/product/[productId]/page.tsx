@@ -120,13 +120,13 @@ export default async function ProductPage({
 
           <h1 className="font-semibold text-lg text-green-700">In stock</h1>
 
-          <div className="flex gap-2">
+          {/* <div className="flex gap-2">
             <h1>Quantity:</h1>
 
             <select className="w-fit border border-stone-900 focus:outline-none hover:cursor-pointer">
               {quantityArr}
             </select>
-          </div>
+          </div> */}
 
           <AddToCartButton {...{pageProductId: product.id, isProductCarted}} />
 

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Navbar from '@/components/Navbar';
-import WishlistCard from '@/components/WishlistCard';
 import CartCard from '@/components/CartCard';
 import ProductCard from '@/components/ProductCard';
 import RemoveAllFromCart from '@/components/RemoveAllFromCartButton';
@@ -17,7 +16,9 @@ const CartPage = async () => {
     var itemsSum: number = itemsPriceSum + (itemsCentsSum / 100)
     
 
-    const products = await prisma.product.findMany()
+    const products = await prisma.product.findMany({
+        take: 2
+    })
     const carts = await prisma.userCarted.findMany({
         where: {
             userId: parseInt(userIdToString)
@@ -75,8 +76,19 @@ const CartPage = async () => {
 
                 <div className='flex flex-col gap-4 items-center pb-4 w-1/4'>
                     <h1 className='text-2xl font-semibold italic font-serif pt-4'>Also Check</h1>
-                    {/* <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} />
-                    <ProductCard {...{ addMarginTop: false, imagePath: '/images/shade2.png'}} /> */}
+                    {products.map(product => (
+                        <ProductCard key={product.id} {...{ 
+                            addMarginTop: false, 
+                            imagePath: "/images/shade2.png",
+                            id: product.id,
+                            name: product.name,
+                            collection: product.collection,
+                            discountPercentage: product.discountPercentage,
+                            listPrice: product.listPrice,
+                            listPriceCents: product.listPriceCents,
+                            unitsRemaining: product.unitsRemaining,
+                          }} />
+                    ))}
                 </div>
             </div>
         </div>
