@@ -25,7 +25,7 @@ export default async function Home() {
       <Navbar />
 
       {/* hero section */}
-      <div className='relative flex flex-col mt-24 h-fit min-w-[48rem] z-10 lg:min-w-[36rem] sm:min-w-full'>
+      <div className='relative flex flex-col mt-24 sm:mt-14 h-fit min-w-[48rem] z-10 lg:min-w-[36rem] sm:min-w-[90%]'>
         <Image className='absolute z-30 left-1/4 -translate-x-3/4 sm:h-[190px] sm:w-[140px]' src='/images/heroImg3.png' height={240} width={190} alt='hero image 1'/>
         <Image className='absolute z-30 right-1/4 mt-24 translate-x-3/4 sm:h-[180px] sm:w-[110px]' src='/images/heroImg4.png' height={320} width={180} alt='hero image 2'/>
         <div className='absolute inset-x-0 inset-y-0 mx-auto mt-36 h-28 w-28 -translate-x-8 rounded-full z-50 bg-zinc-50/40 backdrop-blur-sm'></div>
@@ -81,24 +81,24 @@ export default async function Home() {
       </div>
 
       {/* showing off section */}
-      <div className='relative h-fit w-[90%] grid grid-cols-4 gap-8'>
+      <div className='relative h-fit w-[90%] grid grid-cols-4 gap-8 lg:grid-cols-3 sm:grid-cols-1 sm:gap-4'>
 
-        <h1 className='absolute z-0 top-12 left-24 text-6xl '>Flawlessly</h1>
-        <h1 className='absolute z-40 top-12 left-24 text-6xl outline-text '>Flawlessly</h1>
-        <h1 className='absolute top-12 left-40 text-7xl mt-16 '>Showing <span className='font-serif italic'>Off</span></h1>
-        <h1 className='absolute z-40 top-12 left-40 text-7xl mt-16 outline-text '>Showing</h1>
+        <h1 className='absolute z-0 top-12 left-24 sm:left-0 text-6xl lg:text-5xl sm:text-4xl '>Flawlessly</h1>
+        <h1 className='absolute z-40 top-12 left-24 sm:left-0 text-6xl lg:text-5xl sm:text-4xl outline-text '>Flawlessly</h1>
+        <h1 className='absolute top-12 left-40 sm:left-0 text-7xl lg:text-6xl sm:text-5xl mt-16 '>Showing <span className='font-serif italic z-40'>Off</span></h1>
+        <h1 className='absolute z-40 top-12 left-40 sm:left-0 text-7xl lg:text-6xl sm:text-5xl mt-16 outline-text '>Showing</h1>
 
         <div className='z-30'>
-          <Image className='' src='/images/showoff3.png' height={240} width={280} alt='showoff image'/>
+          <Image className='sm:h-[200px] sm:w-[170px]' src='/images/showoff3.png' height={240} width={280} alt='showoff image'/>
         </div>
 
-        <div className='flex flex-col justify-end h-80 gap-4 col-span-2'>
+        <div className='flex flex-col justify-end h-80 gap-4 col-span-2 sm:h-fit'>
           <p className='flex items-center'>At Pryde Beauty, we're passionate about helping you discover your unique beauty. Our curated selection of premium beauty products brings out your inner radiance. Explore, shop, and glow with us!</p>
           
         </div>
 
-        <div>
-          <Image className='m-auto' src='/images/showoff2.png' height={180} width={180} alt='showoff video thumbnail'/>
+        <div className='lg:absolute lg:right-0 md:hidden'>
+          <Image className='m-auto lg:h-[120px] lg:w-[160px]' src='/images/showoff2.png' height={180} width={180} alt='showoff video thumbnail'/>
         </div>
       </div>
 
@@ -108,7 +108,7 @@ export default async function Home() {
         <h1 className='absolute right-0 top-44 select-none text-stone-200 text-[10rem] text-right tracking-widest italic font-serif w-[50vw] lg:w-full float-right overflow-hidden sm:text-[7rem]'>tional</h1>
         
         <Image className='inset-x-0 inset-y-0 mx-auto z-30 select-none' src='/images/cream2.png' height={300} width={350} alt='showoff video thumbnail'/>
-        <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-96 w-96 rounded-full z-20 bg-gradient-to-b from-yellow-400 to-stone-50 blur-2xl'></div>
+        <div className='absolute inset-x-0 inset-y-0 mx-auto mt-24 h-96 w-96 sm:h-72 sm:w-72 rounded-full z-20 bg-gradient-to-b from-yellow-400 to-stone-50 blur-2xl overflow-hidden'></div>
 
         <div className='w-full text-center align-center'>
           <h1 className='text-5xl'>Our best seller from <span className='italic font-serif'>Golden Hour</span></h1>

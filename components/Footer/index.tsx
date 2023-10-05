@@ -30,7 +30,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className='w-[90%] pt-16'>
+            <div className='w-[90%] pt-16 sm:mb-24'>
                 <div className='w-full h-px bg-zinc-800'/>
                 <p className='py-8 text-sm'>2023 @ All rights reserved. Designed by Prydelabs. Developed by Matheus Franco</p>
             </div>

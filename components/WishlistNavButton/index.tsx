@@ -12,7 +12,7 @@ export default function WishlistNavButton() {
 
     return (
         <button onClick={goToWishlist}>
-            <CiHeart className='text-2xl' />
+            <CiHeart className='text-2xl sm:text-zinc-50' />
         </button>
     )
 }
