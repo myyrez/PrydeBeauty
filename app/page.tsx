@@ -17,9 +17,7 @@ function getProducts() {
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  const products = await prisma.product.findMany({
-    take: 3
-  })
+  const products = await prisma.product.findMany()
 
   return (
     <div className='relative text-zinc-900 h-screen flex gap-36 items-center flex-col '>
@@ -56,7 +54,7 @@ export default async function Home() {
       <div className='h-fit w-[90%] z-10'>
         <h1 className='text-4xl text-zinc-900'>Featured <span className='italic font-serif'>Collection</span></h1>
         <div className='flex justify-around py-10'>
-          {products.filter(product => product.collection == 'Cheeks Out Freestyle').map(product => (
+          {products.filter(product => product.collection == "Cheeks Out Freestyle").map(product => (
             <ProductCard key={product.id} {...{ 
               addMarginTop: false, 
               imagePath: "/images/shade2.png",

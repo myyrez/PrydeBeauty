@@ -64,7 +64,7 @@ const WishlistCard: React.FunctionComponent<WishlistCardProps> = async (props) =
         <div className="relative flex w-full items-start gap-2 my-1 h-[200px] bg-stone-400/5 backdrop-blur-sm">
             <WishlistButton setWishlisted={setWishlisted} {...{ id, isProductWishlisted }} />
 
-            <Image src='/images/shade1.png' height={200} width={150} alt='product card image' />
+            <Image src={`/images/${id}.jpg`} height={200} width={150} alt='product card image' />
             <div className="flex flex-col justify-between w-fit p-2 gap-2">
                 <Link href={`/product/${id}`} className='w-fit'>
                     <h1 className="text-xl font-bold">

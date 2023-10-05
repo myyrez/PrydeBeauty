@@ -72,7 +72,7 @@ export default async function ProductPage({
 
       <div className="flex gap-8 justify-between h-fit mt-24 w-[90%] z-10">
         <div className="w-80">
-            <Image src='/images/shade1.png' height={400} width={350} alt='product card image' />
+            <Image src={`/images/${product.id}.jpg`} height={400} width={350} alt='product card image' />
         </div>
 
         <div className="flex flex-col gap-2 w-2/5 p-4">

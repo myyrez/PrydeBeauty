@@ -49,7 +49,7 @@ const CartCard: React.FunctionComponent<CartCardProps> = async (props) => {
 
     return (
         <div className="relative flex w-full items-start gap-2 my-4 h-[200px] bg-stone-400/5 backdrop-blur-sm">
-            <Image src='/images/shade1.png' height={200} width={150} alt='product card image' />
+            <Image src={`/images/${id}.jpg`} height={200} width={150} alt='product card image' />
             <div className="flex flex-col justify-center h-full w-full p-2 gap-2">
                 <Link href={`/product/${id}`} className='w-fit'>
                     <h1 className="text-xl font-bold">

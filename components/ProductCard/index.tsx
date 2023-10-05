@@ -60,7 +60,7 @@ const ProductCard: React.FC<CardProps> = async (props) => {
             
             <WishlistButton setWishlisted={setWishlisted} {...{ id, isProductWishlisted }} />
             
-            <Image src={imagePath} height={400} width={300} alt='product card image' />
+            <Image src={`/images/${id}.jpg`} height={400} width={300} alt='product card image' />
             <div className='flex gap-2'>
                 {discountPercentage > 0
                     ? <p className="text-base font-extrabold uppercase">${discountedPrice}</p>
