@@ -16,8 +16,8 @@ export default function Navbar() {
             </div>
         
             <div className='my-6 mr-20 text-zinc-900 font-semibold flex gap-6 items-center'>
-                <Link href='/collections'>Collections</Link>
-                <div className='select-none'>.</div>
+                <Link href='/collections'><CiSearch className='text-2xl' /></Link>
+                {/* <div className='select-none'>.</div> */}
                 <WishlistNavButton />
                 <Link href='/account'><CiUser className='text-2xl' /></Link>
                 <CartButton />

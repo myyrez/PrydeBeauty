@@ -11,20 +11,20 @@ export default function Footer() {
                 <span className="font-bold"> Beauty </span>
             </h1>
 
-            <div className='grid grid-cols-3 gap-12 w-fit'>
-                <div className='flex flex-col gap-3'>
-                    <h1 className='font-bold uppercase'>Socials</h1>
+            <div className='grid grid-cols-3 gap-20 w-fit lg:gap-4 md:grid-cols-2 md:gap-14 sm:grid-cols-1'>
+                <div className='flex flex-col gap-3 md:items-center'>
+                    <h1 className='font-bold uppercase md:self-center'>Socials</h1>
+                    <Link href='mailto:matheusfc2626@gmail.com' className='flex items-center gap-2 text-stone-400'><FiMail /> matheusfc2626@gmail.com </Link>
                     <Link href='https://www.linkedin.com/in/matheus-franco-carlos-07714b222/' className='flex items-center gap-2 text-stone-400'><FaLinkedin /> Matheus Franco Carlos </Link>
                     <Link href='https://github.com/myyrez' className='flex items-center gap-2 text-stone-400'><FaGithub /> myyrez </Link>
-                    <Link href='mailto:matheusfc2626@gmail.com' className='flex items-center gap-2 text-stone-400'><FiMail /> matheusfc2626@gmail.com </Link>
                 </div>
-                <div className='flex flex-col gap-3'>
-                    <h1 className='font-bold uppercase'>my other projects</h1>
+                <div className='flex flex-col gap-3 md:items-center'>
+                    <h1 className='font-bold uppercase md:self-center'>my other projects</h1>
                     <Link href='https://chronofight.netlify.app/' className='flex items-center gap-2 text-stone-400'> Chronofight </Link>
                     <Link href='https://spacemirror.netlify.app/' className='flex items-center gap-2 text-stone-400'> Mirror. </Link>
                 </div>
-                <div className='flex flex-col gap-3'>
-                    <h1 className='font-bold uppercase'>Figma Design by acholo aaron</h1>
+                <div className='flex flex-col gap-3 md:items-center md:w-fit md:mx-auto md:col-span-2 sm:col-span-1'>
+                    <h1 className='font-bold uppercase md:self-center'>Design by acholo aaron</h1>
                     <Link href='https://www.figma.com/@pryde' className='flex items-center gap-2 text-stone-400'><FaFigma /> Pryde </Link>
                     <Link href='https://www.instagram.com/he.is.aaron_' className='flex items-center gap-2 text-stone-400'><FaInstagram /> Aaron </Link>
                 </div>
