@@ -27,8 +27,8 @@ const LoginPage = () => {
 
             <div className='flex flex-col z-20 w-[90%] min-h-screen items-center justify-center gap-6'>
                 <h1 className='font-bold text-4xl italic font-serif'>Login</h1>
-                <input name='email' type='email' onChange={(e) => (email.current = e.target.value)} placeholder='Email' className='w-96 p-3 border-2 border-zinc-900 focus:outline-none'/>
-                <input name='password' type='password' onChange={(e) => (password.current = e.target.value)} placeholder='Password' className='w-96 p-3 border-2 border-zinc-900 focus:outline-none'/>
+                <input name='email' type='email' onChange={(e) => (email.current = e.target.value)} placeholder='Email' className='w-64 p-3 border-2 border-zinc-900 focus:outline-none'/>
+                <input name='password' type='password' onChange={(e) => (password.current = e.target.value)} placeholder='Password' className='w-64 p-3 border-2 border-zinc-900 focus:outline-none'/>
                 <button type='submit' className='flex justify-center w-fit h-11 py-1 px-4 border-solid border-2 bg-stone-900 border-stone-900 text-stone-50'>
                     <p className='h-auto m-auto text-sm leading-[30px] font-bold'>Continue</p>
                 </button>
