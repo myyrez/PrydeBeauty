@@ -48,27 +48,27 @@ const CartCard: React.FunctionComponent<CartCardProps> = async (props) => {
     let discountedCents = (productPriceSum - ((productPriceSum * discountPercentage) / 100)).toFixed(2)
 
     return (
-        <div className="relative flex w-full items-start gap-2 my-4 h-[200px] bg-stone-400/5 backdrop-blur-sm">
-            <Image src={`/images/${id}.jpg`} height={200} width={150} alt='product card image' />
-            <div className="flex flex-col justify-center h-full w-full p-2 gap-2">
+        <div className="relative flex w-full items-start gap-2 my-4 h-[200px] sm:h-[150px] sm:mb-16 bg-stone-400/5 backdrop-blur-sm">
+            <Image src={`/images/${id}.jpg`} className='sm:h-[150px] sm:w-[110px]' height={200} width={150} alt='product card image' />
+            <div className="relative flex flex-col justify-center sm:justify-start h-full w-full p-2 gap-2">
                 <Link href={`/product/${id}`} className='w-fit'>
-                    <h1 className="text-xl font-bold">
+                    <h1 className="text-xl sm:text-base font-bold">
                         {name}
                         <div className='h-px w-1/6 ease-in-out duration-300 bg-zinc-900'></div>
                     </h1>
                 </Link>
 
-                <h1 className="text-xl font-bold">{collection} <span className='italic font-serif'>Collection</span></h1>
+                <h1 className="text-xl sm:text-base font-bold">{collection} <span className='italic font-serif sm:hidden'>Collection</span></h1>
 
-                <div className='flex justify-between items-end w-full'>
+                <div className='flex sm:absolute sm:bottom-0 sm:translate-y-full sm:justify-end sm:pr-2 justify-between items-end w-full'>
                     {discountPercentage > 0
-                        ?   <div className='flex justify-center w-24 h-11 py-1 mt-8 px-4 border-solid border-2 bg-stone-900 text-stone-50 border-zinc-900'>
+                        ?   <div className='flex justify-center w-24 h-11 py-1 mt-8 sm:mt-0 px-4 border-solid border-2 bg-stone-900 text-stone-50 border-zinc-900'>
                                 <h1 className="flex h-auto m-auto gap-1 text-xs font-bold">
                                     $ <span className="text-xl leading-none">{discountedPrice}</span> {discountedCents.split('.')[1]}
                                 </h1>
                             </div>
 
-                        :   <div className='flex justify-center w-24 h-11 py-1 mt-8 px-4 border-solid border-2 bg-stone-900 text-stone-50 border-zinc-900'>
+                        :   <div className='flex justify-center w-24 h-11 py-1 mt-8 sm:mt-0 px-4 border-solid border-2 bg-stone-900 text-stone-50 border-zinc-900'>
                                 <h1 className="flex h-auto m-auto gap-1 text-xs font-bold">
                                     $ <span className="text-xl leading-none">{listPrice}</span> {listPriceCents}
                                 </h1>

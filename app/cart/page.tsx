@@ -35,12 +35,12 @@ const CartPage = async () => {
     return (
         <div className='relative flex justify-center h-fit text-stone-900'>
             <Navbar />
-            <div className='absolute animate-spin-slow left-16 inset-y-0 mx-auto my-auto mt-14 h-56 w-40 rounded-full z-0 bg-gradient-to-b from-blue-400 to-pink-600 blur-3xl'></div>
-            <div className='absolute animate-spin-slow right-40 inset-y-0 mx-auto my-auto mt-14 h-44 w-20 rounded-full z-0 bg-gradient-to-b from-yellow-400 to-orange-600 blur-3xl'></div>
+            <div className='absolute animate-spin-slow left-16 sm:left-10 sm:mt-0 sm:h-32 sm:w-32 inset-y-0 mx-auto my-auto mt-14 h-56 w-40 rounded-full z-0 bg-gradient-to-b from-blue-400 to-pink-600 blur-3xl'></div>
+            
 
-            <div className='flex z-20 w-[90%] h-fit justify-between gap-6 mt-24'>
-                <div className='w-3/4 h-fit'>
-                    <h1 className='text-2xl font-semibold italic font-serif pt-4'>Shopping Cart</h1>
+            <div className='flex lg:flex-col z-20 w-[90%] h-fit justify-between gap-6 mt-24 sm:mt-12'>
+                <div className='w-3/4 lg:w-full h-fit'>
+                    <h1 className='text-2xl font-semibold italic font-serif pt-4 sm:pt-0'>Shopping Cart</h1>
                     {carts.map(cart => (
                         <CartCard key={cart.id} {...{
                             id: cart.Product.id,
@@ -54,7 +54,7 @@ const CartPage = async () => {
                         
                     ))}
 
-                    <div className='flex justify-between h-fit p-4 px-8 my-8 bg-stone-800/5 backdrop-blur-sm'>
+                    <div className='flex sm:flex-col sm:gap-4 justify-between h-fit p-4 px-8 my-8 bg-stone-800/5 backdrop-blur-sm'>
                         <div className='flex items-center gap-4'>
                             <h1 className='text-2xl font-bold'>Estimated Total:</h1>
 
@@ -67,7 +67,7 @@ const CartPage = async () => {
                             </h1>
                         </div>
 
-                        <div className='flex items-center gap-8'>
+                        <div className='flex items-center gap-8 sm:gap-4'>
                             <PurchaseProductsButton />
 
                             <RemoveAllFromCart />
@@ -75,7 +75,8 @@ const CartPage = async () => {
                     </div>
                 </div>
 
-                <div className='flex flex-col gap-4 items-center pb-4 w-1/4'>
+                <div className='relative flex flex-col md:flex-col lg:flex-row lg:w-full lg:justify-around sm:mb-24 gap-4 items-center pb-4 w-1/4'>
+                    <div className='absolute animate-spin-slow right-20 lg:left-14 lg:mx-0 lg:inset-y-1/2 md:inset-x-auto md:top-0 md:my-0 top-0 mx-auto my-auto h-44 w-20 rounded-full z-0 bg-gradient-to-b from-yellow-400 to-orange-600 blur-3xl'></div>
                     <h1 className='text-2xl font-semibold italic font-serif pt-4'>Also Check</h1>
                     {products.map(product => (
                         <ProductCard key={product.id} {...{ 
