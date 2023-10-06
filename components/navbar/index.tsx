@@ -6,7 +6,7 @@ import WishlistNavButton from '../WishlistNavButton'
 
 export default function Navbar() {
     return (
-        <nav className='fixed sm:bottom-0 h-24 sm:h-20 z-50 w-full flex justify-between items-center sm:justify-around sm:bg-zinc-950'>
+        <nav className='fixed sm:bottom-0 h-24 sm:h-20 z-50 w-full flex justify-between items-center sm:justify-around bg-zinc-50 sm:bg-zinc-950'>
             <div className='my-6 ml-20 sm:ml-0'>
                 <Link href='/' className='text-zinc-900 font-semibold flex items-center sm:justify-center gap-1'>
                     <span className='text-orange-500 mr-1 sm:hidden'> <FaStarOfLife/> </span>
