@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "production:build": "npx prisma generate && npx prisma migrate deploy && next build"
   },
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.11",
