@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navbar';
 import prisma from '@/db';
 import { redirect } from 'next/navigation';
 import { hash } from 'bcrypt';

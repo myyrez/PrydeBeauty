@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navbar';
 import PurchaseCard from '@/components/PurchaseCard';
 import prisma from '@/db';
 import { redirect } from 'next/navigation';

@@ -1,6 +1,6 @@
 'use client'
 import React, { useRef } from 'react'
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navbar';
 import Link from 'next/link';
 import { signIn } from 'next-auth/react'
 

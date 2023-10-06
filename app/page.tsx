@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/navbar';
 import Footer from '@/components/Footer';
 import ProductCard from '@/components/ProductCard';
 import { FaStar } from 'react-icons/fa'

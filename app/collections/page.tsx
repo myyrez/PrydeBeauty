@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import ProductCard from "@/components/ProductCard";
 import prisma from "@/db";
 

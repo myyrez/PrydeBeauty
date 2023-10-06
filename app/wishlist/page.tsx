@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/navbar";
 import WishlistCard from '@/components/WishlistCard';
 import prisma from '@/db';
 import { Product } from '@prisma/client';
