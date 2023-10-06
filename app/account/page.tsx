@@ -36,7 +36,7 @@ const AccountPage = async () => {
             <div className='absolute animate-spin-slow inset-x-0 inset-y-0 mx-auto mt-20 sm:mt-8 h-28 w-28 rounded-full z-0 bg-gradient-to-br from-pink-600 to-blue-400 blur-2xl'></div>
 
             {users.filter(user => user.username === session.user?.email).map(user => (
-                <div className='flex flex-col z-20 w-[90%] h-fit items-center mt-24 sm:mt-12 gap-16'>
+                <div key={user.id} className='flex flex-col z-20 w-[90%] h-fit items-center mt-24 sm:mt-12 gap-16'>
                         
                     <h1 className='font-bold text-4xl sm:text-3xl text-center'>{user.name}'s <span className='italic font-serif'>Account</span></h1>
 

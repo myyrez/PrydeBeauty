@@ -3,7 +3,7 @@ import * as React from 'react';
 import removeCarted from '../shared/removeCarted';
 import { useRouter } from "next/navigation";
 
-export default function removeAllFromCart() {
+export default function RemoveAllFromCart() {
     const router = useRouter()
 
     function removeFromCart() {

@@ -60,8 +60,8 @@ export default async function CollectionsPage() {
         </h1>
         <div className="flex justify-around py-10 sm:mb-24 lg:pb-0 lg:grid lg:gap-8 lg:grid-cols-2 lg:justify-items-center sm:grid-cols-1">
           {products.filter(product => product.collection == "Mother Nature's Blessing").map(product => (
-            <div className='lg:last:col-span-2 sm:last:col-span-1'>
-            <ProductCard key={product.id} {...{ 
+            <div key={product.id} className='lg:last:col-span-2 sm:last:col-span-1'>
+            <ProductCard  {...{ 
               addMarginTop: false, 
               imagePath: "/images/shade2.png",
               id: product.id,
