@@ -33,22 +33,22 @@ const AccountPage = async () => {
     return (
         <div className='relative flex justify-center h-fit text-stone-900'>
             <Navbar />
-            <div className='absolute animate-spin-slow inset-x-0 inset-y-0 mx-auto mt-20 h-28 w-28 rounded-full z-0 bg-gradient-to-br from-pink-600 to-blue-400 blur-2xl'></div>
+            <div className='absolute animate-spin-slow inset-x-0 inset-y-0 mx-auto mt-20 sm:mt-8 h-28 w-28 rounded-full z-0 bg-gradient-to-br from-pink-600 to-blue-400 blur-2xl'></div>
 
             {users.filter(user => user.username === session.user?.email).map(user => (
-                <div className='flex flex-col z-20 w-[90%] h-fit items-center mt-24 gap-16'>
+                <div className='flex flex-col z-20 w-[90%] h-fit items-center mt-24 sm:mt-12 gap-16'>
                         
-                    <h1 className='font-bold text-4xl'>{user.name}'s <span className='italic font-serif'>Account</span></h1>
+                    <h1 className='font-bold text-4xl sm:text-3xl text-center'>{user.name}'s <span className='italic font-serif'>Account</span></h1>
 
-                    <div className='flex items-start w-full'>
-                        <div className='flex flex-col gap-4 w-1/2 items-center justify-center'>
-                            <h1 className='font-bold text-2xl'>Name: <span>{user.name}</span></h1>
-                            <h1 className='font-bold text-2xl'>Email: <span>{user.username}</span></h1>
+                    <div className='flex items-start w-full md:flex-col md:gap-12'>
+                        <div className='flex flex-col md:mx-auto gap-4 w-1/2 items-center justify-center'>
+                            <h1 className='font-bold text-2xl text-center'>Name: <span>{user.name}</span></h1>
+                            <h1 className='font-bold text-2xl text-center'>Email: <span>{user.username}</span></h1>
                             
                             <LogoutButton />
                         </div>
 
-                        <div className='flex gap-4 w-1/2 justify-center'>
+                        <div className='flex md:mx-auto md:mb-24 gap-4 w-1/2 md:w-full justify-center'>
                             <div className='flex flex-col items-center w-full h-fit'>
                                 <h1 className='font-bold text-2xl'>Your purchases</h1>
                                 {purchases.map(purchase => (
