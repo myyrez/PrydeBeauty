@@ -70,12 +70,12 @@ export default async function ProductPage({
     <div className="relative text-zinc-900 h-fit flex gap-36 items-center flex-col">
       <Navbar />
 
-      <div className="flex gap-8 justify-between h-fit mt-24 w-[90%] z-10">
-        <div className="w-80">
-            <Image src={`/images/${product.id}.jpg`} height={400} width={350} alt='product card image' />
+      <div className="flex lg:grid lg:grid-cols-2 sm:grid-cols-1 gap-8 sm:gap-2 justify-between h-fit mt-24 sm:mt-12 w-[90%] z-10">
+        <div className="w-80 sm:w-full sm:flex sm:justify-center">
+            <Image src={`/images/${product.id}.jpg`} className="lg:h-[380px] lg:w-[270px] sm:h-[330px] sm:w-[240px] sm:mx-auto" height={400} width={350} alt='product card image' />
         </div>
 
-        <div className="flex flex-col gap-2 w-2/5 p-4">
+        <div className="flex flex-col lg:w-full gap-2 w-2/5 p-4">
           <h1 className="text-2xl font-semibold">{product.name}</h1>
           <h1 className="text-2xl font-semibold">{product.collection} <span className="italic font-serif">Collection</span></h1>
           <div className='flex gap-1 mt-2 items-center font-semibold'> <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar /> </div>
@@ -105,7 +105,7 @@ export default async function ProductPage({
           </div>
         </div>
 
-        <div className="relative flex flex-col gap-6 w-80 p-4 h-fit">
+        <div className="relative lg:col-span-2 sm:col-span-1 lg:w-1/2 lg:mx-auto sm:w-full flex flex-col gap-6 sm:mb-24 w-80 p-4 h-fit">
           {product.discountPercentage > 0
             ?
             <h1 className="flex gap-1 text-sm my-3 font-bold">
