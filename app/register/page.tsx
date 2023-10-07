@@ -46,10 +46,7 @@ const RegisterPage = () => {
                 <div className='flex flex-col gap-3'>
                     <input name='name' placeholder='Name' className='w-64 p-3 sm:p-2 border-2 border-zinc-900 focus:outline-none'/>
                     <input name='email' placeholder='Create email' className='w-64 p-3 sm:p-2 border-2 border-zinc-900 focus:outline-none'/>
-                </div>
-                <div className='flex flex-col gap-3'>
                     <input name='password' placeholder='Password' className='w-64 p-3 sm:p-2 border-2 border-zinc-900 focus:outline-none'/>
-                    <input placeholder='Confirm Password' className='w-64 p-3 sm:p-2 border-2 border-zinc-900 focus:outline-none'/>
                 </div>
 
                 <button type='submit' className='flex justify-center w-fit h-11 py-1 px-4 border-solid border-2 bg-stone-900 border-stone-900 text-stone-50'>
